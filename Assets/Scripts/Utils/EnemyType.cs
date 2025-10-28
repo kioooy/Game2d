@@ -1,0 +1,10 @@
+using UnityEngine;
+
+public enum EnemyType
+{
+   Bear,
+   Snake,
+   Spider,
+   Shaman,
+   Thief
+}
