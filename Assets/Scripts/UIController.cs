@@ -4,6 +4,7 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private TMP_Text waveText;
+    [SerializeField] private TMP_Text livesText;
 
     private void OnEnable()
     {
@@ -20,5 +21,10 @@ public class UIController : MonoBehaviour
     private void UpdateWaveText(int currentWave)
     {
         waveText.text = $"Wave: {currentWave + 1}";
+    }
+
+    private void UpdateLivesText(int currentLives)
+    {
+        waveText.text = $"Lives: {currentLives}";
     }
 }
