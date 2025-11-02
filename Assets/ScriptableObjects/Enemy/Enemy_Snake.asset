@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Enemy_Snake
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   lives: 20
-  damage: 10
-  speed: 2
+  damage: 1
+  speed: 1.8

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80956e7014ffff64ba6501678c57f969, type: 3}
-  m_Name: Enemy_Bear
+  m_Name: EnemySpider
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  lives: 50
-  damage: 40
-  speed: 1.5
+  lives: 15
+  damage: 1
+  speed: 3
