@@ -9,12 +9,13 @@ public class UIController : MonoBehaviour
     private void OnEnable()
     {
         Spawner.OnWaveChanged += UpdateWaveText;
-
+        GameManager.OnLivesChanged += UpdateLivesText;
     }
 
     private void OnDisable()
     {
         Spawner.OnWaveChanged -= UpdateWaveText;
+        GameManager.OnLivesChanged -= UpdateLivesText;
     }
 
 
@@ -25,6 +26,6 @@ public class UIController : MonoBehaviour
 
     private void UpdateLivesText(int currentLives)
     {
-        waveText.text = $"Lives: {currentLives}";
+       livesText.text = $" {currentLives}";
     }
 }
