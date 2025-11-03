@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bb86df09aad5624bb5a15e286cc9cee, type: 3}
-  m_Name: ArcherTower
+  m_Name: Archery Tower
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  range: 4
+  range: 3.8
   shootinterval: 1
   projectileSpeed: 10
-  projectileDuration: 4
+  projectileDuration: 2
   damage: 25
