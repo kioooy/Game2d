@@ -8,21 +8,23 @@ public class Tower : MonoBehaviour
     private CircleCollider2D _circleCollider;
 
     private List<Enemy> _enemiesInRange;
+    private ObjectPooler _projectilePool;
+
 
     private void Start()
     {
         _circleCollider = GetComponent<CircleCollider2D>();
         _circleCollider.radius = data.range;
         _enemiesInRange = new List<Enemy>();
+        _projectilePool = GetComponent<ObjectPooler>();
     }
-
-
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, data.range);
     }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -45,6 +47,20 @@ public class Tower : MonoBehaviour
                 _enemiesInRange.Remove(enemy);
             }
         }
+    }
+
+    private void Shoot()
+    {
+
+        if (_enemiesInRange.Count > 0)
+        {
+            GameObject projectile = _projectilePool.GetPooledObject();
+            projectile.transform.position = transform.position;
+            projectile.SetActive(true);
+            Vector2 _shootDirection = (_enemiesInRange[0].transform.position - transform.position).normalized;
+            projectile.GetComponent<Projectile>().Shoot(data, _shootDirection);
+        }
+
     }
 
 }
