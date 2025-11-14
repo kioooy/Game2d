@@ -10,6 +10,8 @@ public class Tower : MonoBehaviour
     private List<Enemy> _enemiesInRange;
     private ObjectPooler _projectilePool;
 
+    private float _shootTimer;
+
 
     private void Start()
     {
@@ -17,6 +19,17 @@ public class Tower : MonoBehaviour
         _circleCollider.radius = data.range;
         _enemiesInRange = new List<Enemy>();
         _projectilePool = GetComponent<ObjectPooler>();
+        _shootTimer = data.shootinterval;
+    }
+
+    private void Update()
+    {
+        _shootTimer -= Time.deltaTime;
+        if (_shootTimer <= 0)
+        {
+            _shootTimer = data.shootinterval;
+            Shoot();
+        }
     }
 
     private void OnDrawGizmos()
