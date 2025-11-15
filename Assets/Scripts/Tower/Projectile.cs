@@ -16,8 +16,18 @@ public class Projectile : MonoBehaviour
         else
         {
             _projectileDuration -= Time.deltaTime;
-            transform.position += new Vector3(_shootDirection.x, _shootDirection.y);
-            _data.projectileSpeed -= Time.deltaTime;
+            transform.position += new Vector3(_shootDirection.x, _shootDirection.y)*
+            _data.projectileSpeed * Time.deltaTime;
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("enemy"))
+        {
+            Enemy enemy = collision.GetComponent<Enemy>();
+            enemy.TakeDamage(_data.damage);
+            gameObject.SetActive(false);
         }
     }
 
