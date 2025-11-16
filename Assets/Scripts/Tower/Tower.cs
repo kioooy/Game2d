@@ -13,6 +13,16 @@ public class Tower : MonoBehaviour
     private float _shootTimer;
 
 
+    private void OnEnable()
+    {
+        Enemy.OnEnemyDestroyed += HandleEnemyDestroyed;
+    }
+    private void OnDisable()
+    {
+        Enemy.OnEnemyDestroyed -= HandleEnemyDestroyed;
+    }
+
+
     private void Start()
     {
         _circleCollider = GetComponent<CircleCollider2D>();
@@ -37,7 +47,7 @@ public class Tower : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, data.range);
     }
 
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -74,6 +84,11 @@ public class Tower : MonoBehaviour
             projectile.GetComponent<Projectile>().Shoot(data, _shootDirection);
         }
 
+    }
+
+    private void HandleEnemyDestroyed(Enemy enemy)
+    {
+        _enemiesInRange.Remove(enemy);
     }
 
 }
