@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     private int _currentWaypoint;
     private float _lives;
 
+    [SerializeField] private Transform healthBar;
+
     //code de tham chieu den Path trong scene
     private void Awake()
     {

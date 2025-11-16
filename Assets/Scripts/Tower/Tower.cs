@@ -13,7 +13,9 @@ public class Tower : MonoBehaviour
     private float _shootTimer;
 
 
-    private void OnEnable()
+    
+
+   private void OnEnable()
     {
         Enemy.OnEnemyDestroyed += HandleEnemyDestroyed;
     }
