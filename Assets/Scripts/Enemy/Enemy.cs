@@ -14,11 +14,14 @@ public class Enemy : MonoBehaviour
     private float _lives;
 
     [SerializeField] private Transform healthBar;
+    private Vector3 _healthBarOriginalScale;
+
 
     //code de tham chieu den Path trong scene
     private void Awake()
     {
         _currentPath = GameObject.Find("Path").GetComponent<Path>();
+        _healthBarOriginalScale = healthBar.localScale;
     }
 
     // Reset bien ve vi tri dau tien tren path moi khi ke dich dc kich hoat
@@ -27,6 +30,7 @@ public class Enemy : MonoBehaviour
         _currentWaypoint = 0;
         _targetPosition = _currentPath.GetPosition(_currentWaypoint);
         _lives = data.lives;
+        UpdateHealthBar();
     }
 
 
@@ -58,11 +62,20 @@ public class Enemy : MonoBehaviour
 
         _lives -= damage;
         _lives = Math.Max(_lives, 0);
+        UpdateHealthBar();
 
         if (_lives <= 0)
         {
             OnEnemyDestroyed?.Invoke(this);
             gameObject.SetActive(false);
         }
+    }
+
+    private void UpdateHealthBar()
+    {
+        float healthPercent = _lives / data.lives;
+        Vector3 scale = _healthBarOriginalScale;
+        scale.x = _healthBarOriginalScale.x * healthPercent;
+        healthBar.localScale = scale;
     }
 }
