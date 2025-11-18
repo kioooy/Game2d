@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyData data;
     public static event Action<EnemyData> OnEnemyReachedEnd;
     public static event Action<Enemy> OnEnemyDestroyed;
+
 
     private Path _currentPath;
 
@@ -14,11 +16,13 @@ public class Enemy : MonoBehaviour
     private float _lives;
 
     [SerializeField] private Transform healthBar;
+    private Vector3 _healthBarOriginalScale;
 
     //code de tham chieu den Path trong scene
     private void Awake()
     {
         _currentPath = GameObject.Find("Path").GetComponent<Path>();
+        _healthBarOriginalScale = healthBar.localScale;
     }
 
     // Reset bien ve vi tri dau tien tren path moi khi ke dich dc kich hoat
@@ -27,15 +31,15 @@ public class Enemy : MonoBehaviour
         _currentWaypoint = 0;
         _targetPosition = _currentPath.GetPosition(_currentWaypoint);
         _lives = data.lives;
+        UpdateHealthBar();
     }
-
 
 
     // khi di chuyen den target position, tiep tuc di chuyen den waypoint tiep theo
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _targetPosition,data.speed * Time.deltaTime);
-    
+        transform.position = Vector3.MoveTowards(transform.position, _targetPosition, data.speed * Time.deltaTime);
+
         float relativeDistance = (transform.position - _targetPosition).magnitude;
         if (relativeDistance < 0.1f)
         {
@@ -45,7 +49,7 @@ public class Enemy : MonoBehaviour
                 _targetPosition = _currentPath.GetPosition(_currentWaypoint);
             }
             else // neu di chuyen den duoc waypoint cuoi cung
-        
+
             {
                 OnEnemyReachedEnd?.Invoke(data);
                 gameObject.SetActive(false);
@@ -55,14 +59,24 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
         _lives -= damage;
         _lives = Math.Max(_lives, 0);
+        UpdateHealthBar();
 
         if (_lives <= 0)
         {
             OnEnemyDestroyed?.Invoke(this);
             gameObject.SetActive(false);
+
         }
+    }
+
+
+    private void UpdateHealthBar()
+    {
+        float healthPercent = _lives / data.lives;
+        Vector3 scale = _healthBarOriginalScale;
+        scale.x = _healthBarOriginalScale.x * healthPercent;
+        healthBar.localScale = scale;
     }
 }
