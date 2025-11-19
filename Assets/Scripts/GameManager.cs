@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         OnLivesChanged?.Invoke(_lives);
+        OnCoinRewardChanged?.Invoke(_coins);
     }
 
     private void HandleEnemyReachedEnd(EnemyData data)
