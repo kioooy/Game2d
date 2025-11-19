@@ -98,6 +98,11 @@ public class Spawner : MonoBehaviour
         {
             GameObject spawnedObject = pool.GetPooledObject();
             spawnedObject.transform.position = transform.position;
+
+            float healthMultiplication = 1f + (_waveCounter * 0.1f); // +10% moi vong 
+            Enemy enemy = spawnedObject.GetComponent<Enemy>();
+            enemy.Initialize(healthMultiplication);
+
             spawnedObject.SetActive(true);
         }
     }
