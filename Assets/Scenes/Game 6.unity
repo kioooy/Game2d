@@ -263,6 +263,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (25)
@@ -397,6 +401,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (14)
@@ -475,6 +483,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
@@ -555,6 +567,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (24)
@@ -633,6 +649,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
@@ -713,6 +733,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (9)
@@ -791,6 +815,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
@@ -871,6 +899,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (10)
@@ -949,6 +981,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
@@ -1119,6 +1155,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (23)
@@ -1197,6 +1237,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
@@ -1414,6 +1458,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (15)
@@ -1492,6 +1540,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
@@ -1652,6 +1704,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (3)
@@ -1730,6 +1786,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
@@ -1810,6 +1870,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint
@@ -1888,6 +1952,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
@@ -2065,6 +2133,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (5)
@@ -2190,6 +2262,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (21)
@@ -2268,6 +2344,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
@@ -2394,6 +2474,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (8)
@@ -2472,6 +2556,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
@@ -5254,6 +5342,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (6)
@@ -5332,6 +5424,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
@@ -5491,6 +5587,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
       value: Waypoint (13)
@@ -5569,6 +5669,10 @@ PrefabInstance:
     - target: {fileID: 218489256523400330, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 878936384604049721, guid: f3120c71531b8d343817d40289bfccff, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7240176254348589091, guid: f3120c71531b8d343817d40289bfccff, type: 3}
       propertyPath: m_Name
