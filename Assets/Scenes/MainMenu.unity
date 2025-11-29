@@ -3347,11 +3347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082cc91cddaf284418fda13bec3ab201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawner: {fileID: 0}
-  player: {fileID: 0}
-  goldManager: {fileID: 0}
-  saveLoadManager: {fileID: 516985617}
-  saveInfoText: {fileID: 0}
 --- !u!4 &516985619
 Transform:
   m_ObjectHideFlags: 0
@@ -4054,10 +4049,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4038d93a9295314d9beb63f850601e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotNumber: 1
-  saveLoadManager: {fileID: 516985617}
-  enemySpawner: {fileID: 0}
-  saveInfoText: {fileID: 2141819672}
 --- !u!1 &648535024
 GameObject:
   m_ObjectHideFlags: 0
@@ -6254,6 +6245,7 @@ GameObject:
   - component: {fileID: 936674042}
   - component: {fileID: 936674041}
   - component: {fileID: 936674040}
+  - component: {fileID: 936674043}
   m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
@@ -6325,9 +6317,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 390521779}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: NewGame
+      - m_Target: {fileID: 936674043}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6375,6 +6367,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936674038}
   m_CullTransparentMesh: 0
+--- !u!114 &936674043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936674038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb27a7cbdc88ce54bbfc62809daa0b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
 --- !u!1 &948173974
 GameObject:
   m_ObjectHideFlags: 0
@@ -8663,11 +8667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf535980a06401d458235e646939cd9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1297182481}
-  musicClips:
-  - {fileID: 8300000, guid: 02f597821a962de44b7f4235e33e17ff, type: 3}
-  - {fileID: 8300000, guid: 009dcd6cb8d167746a783c5100c9802a, type: 3}
-  - {fileID: 8300000, guid: bbdbed427c397624e9b11e6e590fabad, type: 3}
 --- !u!82 &1297182481
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9162,10 +9161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4038d93a9295314d9beb63f850601e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotNumber: 3
-  saveLoadManager: {fileID: 516985617}
-  enemySpawner: {fileID: 0}
-  saveInfoText: {fileID: 654951691}
 --- !u!1 &1319069960
 GameObject:
   m_ObjectHideFlags: 0
@@ -9307,9 +9302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3230c17007a991749807e4c9dfc86493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 9e1923ee6998261468e7c3d1da554423, type: 2}
-  masterSlider: {fileID: 1693476474}
-  musicSlider: {fileID: 588766360}
 --- !u!4 &1323872943
 Transform:
   m_ObjectHideFlags: 0
@@ -11448,10 +11440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a93b17625a02ea4dba7f6e5b418dfb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolutionDropdown: {fileID: 150149430}
-  screenModeDropdown: {fileID: 835258231}
-  qualityDropdown: {fileID: 291269353}
-  syncToggle: {fileID: 2105478180}
 --- !u!1 &1612460066
 GameObject:
   m_ObjectHideFlags: 0
@@ -14388,11 +14376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e23c729bb9ee742bc659ff1f6035cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveSlots:
-  - {fileID: 644441137}
-  - {fileID: 1993564430}
-  - {fileID: 1318702908}
-  loadPanel: {fileID: 1983358928}
 --- !u!114 &1983358931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14588,10 +14571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4038d93a9295314d9beb63f850601e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotNumber: 2
-  saveLoadManager: {fileID: 516985617}
-  enemySpawner: {fileID: 0}
-  saveInfoText: {fileID: 12815454}
 --- !u!1 &2016582018
 GameObject:
   m_ObjectHideFlags: 0
