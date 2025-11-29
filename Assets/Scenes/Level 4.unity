@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 322246524}
   - component: {fileID: 322246523}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Waterfall Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
