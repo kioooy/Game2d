@@ -5,6 +5,6 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.LoadScene("LevelSelect Map 1");
+        SceneManager.LoadScene("LevelSelect");
     }
 }
