@@ -784,6 +784,7 @@ MonoBehaviour:
   waveText: {fileID: 346445068}
   livesText: {fileID: 540705603}
   coinRewardText: {fileID: 349503760}
+  towerPanel: {fileID: 0}
 --- !u!114 &499199468
 MonoBehaviour:
   m_ObjectHideFlags: 0
