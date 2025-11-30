@@ -4884,6 +4884,7 @@ MonoBehaviour:
   waveText: {fileID: 233960886}
   livesText: {fileID: 1498239718}
   coinRewardText: {fileID: 506454696}
+  towerPanel: {fileID: 0}
 --- !u!114 &1378355722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5461,7 +5462,7 @@ GameObject:
   - component: {fileID: 1969268480}
   - component: {fileID: 1969268479}
   m_Layer: 0
-  m_Name: Red Wood Map
+  m_Name: Bazzan Woods Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
