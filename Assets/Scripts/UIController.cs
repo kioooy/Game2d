@@ -7,11 +7,14 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text coinRewardText;
 
+    [SerializeField] private GameObject towerPanel; 
+
     private void OnEnable()
     {
         Spawner.OnWaveChanged += UpdateWaveText;
         GameManager.OnLivesChanged += UpdateLivesText;
         GameManager.OnCoinRewardChanged += UpdateCoinRewardText;
+        Platform.OnPlatformClicked += handlePlatformClicked;
     }
 
     private void OnDisable()
@@ -19,6 +22,7 @@ public class UIController : MonoBehaviour
         Spawner.OnWaveChanged -= UpdateWaveText;
         GameManager.OnLivesChanged -= UpdateLivesText;
         GameManager.OnCoinRewardChanged -= UpdateCoinRewardText;
+        Platform.OnPlatformClicked -= handlePlatformClicked;
     }
 
 
@@ -36,4 +40,21 @@ public class UIController : MonoBehaviour
     {
         coinRewardText.text = $"{currentCoinRewards}";
     }
+
+    private void handlePlatformClicked(Platform platform)
+    {
+        ShowTowerPanel();
+    }
+    
+
+    private void ShowTowerPanel()
+    {
+        towerPanel.SetActive(true);
+    }
+
+    public void HideTowerPanel()
+    {
+        towerPanel.SetActive(false);
+    }
+
 }
