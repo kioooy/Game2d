@@ -6,5 +6,6 @@ public enum EnemyType
    Snake,
    Spider,
    Shaman,
-   Thief
+   Thief,
+   HarpoonFish
 }

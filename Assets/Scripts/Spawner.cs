@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private ObjectPooler BearPool;
     [SerializeField] private ObjectPooler ShamanPool;
     [SerializeField] private ObjectPooler ThiefPool;
+    [SerializeField] private ObjectPooler HarpoonFishPool;
 
     private Dictionary<EnemyType, ObjectPooler> _poolDictionary;
 
