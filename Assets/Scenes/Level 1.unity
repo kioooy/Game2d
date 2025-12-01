@@ -8386,16 +8386,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
   waves:
   - {fileID: 11400000, guid: f93404d5851dbdb45912b80b69c949a6, type: 2}
-  - {fileID: 11400000, guid: 35e6aa090b3ea5d4fa9b927a25bca06a, type: 2}
-  - {fileID: 11400000, guid: 3fa1e4212003be34395585ceb33f52d3, type: 2}
-  - {fileID: 11400000, guid: 8d2c401908af4b046a663131fe87840d, type: 2}
+  - {fileID: 11400000, guid: 3b89b913e55326d44a633f02f7e32cef, type: 2}
+  - {fileID: 11400000, guid: 1bb87cf498d2a134dac0630c9c97b31e, type: 2}
+  - {fileID: 11400000, guid: fa21fa64d5b0b444786bbbec1905c8df, type: 2}
+  - {fileID: 11400000, guid: 5564612eba218634fa266bf532bd15bb, type: 2}
   SnakePool: {fileID: 1509608857}
   SpiderPool: {fileID: 2104495884}
   BearPool: {fileID: 903695424}
   ShamanPool: {fileID: 0}
   ThiefPool: {fileID: 0}
-  _timeBetweenWaves: 3
-  _waveCooldown: 5
+  HarpoonFishPool: {fileID: 0}
+  _timeBetweenWaves: 15
+  _waveCooldown: 20
   _isBetweenWaves: 0
 --- !u!4 &1635256074
 Transform:

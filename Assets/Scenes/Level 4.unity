@@ -415,8 +415,8 @@ MonoBehaviour:
   ShamanPool: {fileID: 0}
   ThiefPool: {fileID: 0}
   HarpoonFishPool: {fileID: 1144814646}
-  _timeBetweenWaves: 3
-  _waveCooldown: 5
+  _timeBetweenWaves: 10
+  _waveCooldown: 20
   _isBetweenWaves: 0
 --- !u!4 &218795269
 Transform:
