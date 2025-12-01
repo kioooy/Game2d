@@ -8197,6 +8197,7 @@ MonoBehaviour:
   waveText: {fileID: 536243195}
   livesText: {fileID: 27826885}
   coinRewardText: {fileID: 322411204}
+  towerPanel: {fileID: 0}
 --- !u!114 &1528468225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8258,7 +8259,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1528468228
 RectTransform:
