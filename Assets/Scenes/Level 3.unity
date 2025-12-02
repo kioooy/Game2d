@@ -14178,11 +14178,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35e6aa090b3ea5d4fa9b927a25bca06a, type: 2}
   - {fileID: 11400000, guid: 3fa1e4212003be34395585ceb33f52d3, type: 2}
   - {fileID: 11400000, guid: 8d2c401908af4b046a663131fe87840d, type: 2}
+  _initialDelay: 25
   SnakePool: {fileID: 1932457082}
   SpiderPool: {fileID: 1532963672}
   BearPool: {fileID: 1080471037}
   ShamanPool: {fileID: 0}
   ThiefPool: {fileID: 0}
+  HarpoonFishPool: {fileID: 0}
   _timeBetweenWaves: 3
   _waveCooldown: 8
   _isBetweenWaves: 0
@@ -14548,6 +14550,7 @@ MonoBehaviour:
   waveText: {fileID: 1642102228}
   livesText: {fileID: 798761764}
   coinRewardText: {fileID: 1150546921}
+  towerPanel: {fileID: 0}
 --- !u!114 &2140437447
 MonoBehaviour:
   m_ObjectHideFlags: 0
