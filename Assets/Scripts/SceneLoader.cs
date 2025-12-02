@@ -3,9 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void LoadScene(string sceneName)
+    // Option 1: Hardcoded scene name
+    public void LoadMainMenu()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    // Option 2: Configurable scene name
+    [SerializeField] private string sceneName = "MainMenu";
+
+    public void LoadScene()
+    {
+        if (!string.IsNullOrEmpty(sceneName))
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }
-

@@ -6320,7 +6320,7 @@ MonoBehaviour:
       - m_Target: {fileID: 936674043}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6379,6 +6379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb27a7cbdc88ce54bbfc62809daa0b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
+  sceneName: LevelSelect
 --- !u!1 &948173974
 GameObject:
   m_ObjectHideFlags: 0
