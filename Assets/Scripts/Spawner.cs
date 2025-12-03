@@ -27,6 +27,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private ObjectPooler ShamanPool;
     [SerializeField] private ObjectPooler ThiefPool;
     [SerializeField] private ObjectPooler HarpoonFishPool;
+    [SerializeField] private ObjectPooler LancerPool;
 
     private Dictionary<EnemyType, ObjectPooler> _poolDictionary;
 
@@ -43,7 +44,9 @@ public class Spawner : MonoBehaviour
             { EnemyType.Spider, SpiderPool},
             { EnemyType.Shaman, ShamanPool},
             { EnemyType.Thief, ThiefPool},
-            { EnemyType.HarpoonFish, HarpoonFishPool}
+            { EnemyType.HarpoonFish, HarpoonFishPool},
+            { EnemyType.Lancer, LancerPool},
+
         };
     }
 
