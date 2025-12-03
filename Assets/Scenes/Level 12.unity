@@ -1124,7 +1124,7 @@ GameObject:
   - component: {fileID: 748676282}
   - component: {fileID: 748676281}
   m_Layer: 5
-  m_Name: TowerPanel
+  m_Name: DefenseTowerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
