@@ -6326,7 +6326,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: LevelSelect
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &936674041
@@ -6379,6 +6379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb27a7cbdc88ce54bbfc62809daa0b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
+  sceneName: LevelSelect
 --- !u!1 &948173974
 GameObject:
   m_ObjectHideFlags: 0
@@ -8667,6 +8668,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf535980a06401d458235e646939cd9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 1297182481}
+  musicClips:
+  - {fileID: 8300000, guid: 02f597821a962de44b7f4235e33e17ff, type: 3}
+  - {fileID: 8300000, guid: 009dcd6cb8d167746a783c5100c9802a, type: 3}
+  - {fileID: 8300000, guid: bbdbed427c397624e9b11e6e590fabad, type: 3}
 --- !u!82 &1297182481
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9302,6 +9308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3230c17007a991749807e4c9dfc86493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 9e1923ee6998261468e7c3d1da554423, type: 2}
+  masterSlider: {fileID: 1693476474}
+  musicSlider: {fileID: 588766360}
 --- !u!4 &1323872943
 Transform:
   m_ObjectHideFlags: 0

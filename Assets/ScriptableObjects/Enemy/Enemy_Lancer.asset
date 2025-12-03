@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80956e7014ffff64ba6501678c57f969, type: 3}
-  m_Name: EnemySpider
+  m_Name: Enemy_Lancer
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  lives: 25
+  lives: 40
   damage: 1
-  speed: 2.5
-  coinReward: 10
+  speed: 2
+  coinReward: 20

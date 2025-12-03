@@ -9492,14 +9492,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
   waves:
-  - {fileID: 11400000, guid: 88e95bf4b2af4d94cbf31293b2d8c47f, type: 2}
-  - {fileID: 11400000, guid: 4ceab97a7a0def14ea85f51b3e2a6221, type: 2}
+  - {fileID: 11400000, guid: 60474eca2ef7c89499c4d8af44585663, type: 2}
+  - {fileID: 11400000, guid: 2c5117dcefbef8b409af2e8b26df1134, type: 2}
+  - {fileID: 11400000, guid: 250a9b3e0f20fc6419cc1c94841211c0, type: 2}
   - {fileID: 11400000, guid: 0091cc4559ad6fa4ea760f1854ab1ac6, type: 2}
+  - {fileID: 11400000, guid: 0091cc4559ad6fa4ea760f1854ab1ac6, type: 2}
+  - {fileID: 11400000, guid: 0091cc4559ad6fa4ea760f1854ab1ac6, type: 2}
+  - {fileID: 11400000, guid: 0091cc4559ad6fa4ea760f1854ab1ac6, type: 2}
+  - {fileID: 11400000, guid: 0091cc4559ad6fa4ea760f1854ab1ac6, type: 2}
+  _initialDelay: 25
   SnakePool: {fileID: 1111868066}
   SpiderPool: {fileID: 497560922}
   BearPool: {fileID: 1027084066}
   ShamanPool: {fileID: 0}
   ThiefPool: {fileID: 0}
+  HarpoonFishPool: {fileID: 0}
   _timeBetweenWaves: 3
   _waveCooldown: 0
   _isBetweenWaves: 0
