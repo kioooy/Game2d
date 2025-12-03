@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
     public static event Action<int> OnLivesChanged;
     public static event Action<int> OnCoinRewardChanged;
 
@@ -10,6 +12,17 @@ public class GameManager : MonoBehaviour
     private int _lives = 20;
     private int _coins = 300;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     private void OnEnable()
     {
         Enemy.OnEnemyReachedEnd += HandleEnemyReachedEnd;
@@ -45,6 +58,9 @@ public class GameManager : MonoBehaviour
         OnCoinRewardChanged?.Invoke(_coins);
     }
 
-
+    public void SetTimeScale(float scale)
+    {
+        Time.timeScale = scale;
+    }
 
 }

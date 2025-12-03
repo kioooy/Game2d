@@ -4,28 +4,15 @@ using UnityEngine.InputSystem;
 
 public class Platform : MonoBehaviour
 {
-    public static event Action<Platform> OnPlatformClicked; // Event được gọi khi platform được click
+    public static event Action<Platform> OnPlatformClicked;
     [SerializeField] private LayerMask platformLayerMask;
-    
+
     private void Update()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            if (Camera.main == null) return;
-            
-            Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
-            Camera cam = Camera.main;
-            Rect cameraRect = cam.pixelRect;
-            
-            // Kiểm tra trực tiếp bằng Rect.Contains để tránh cảnh báo
-            if (!cameraRect.Contains(mouseScreenPos))
-            {
-                return; // Bỏ qua nếu chuột nằm ngoài camera rect
-            }
-            
-            Vector2 worldPosition = cam.ScreenToWorldPoint(mouseScreenPos);
-            RaycastHit2D raycastHit = Physics2D.Raycast(worldPosition, Vector2.zero, Mathf.Infinity, 
-                platformLayerMask);
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            RaycastHit2D raycastHit = Physics2D.Raycast(worldPoint, Vector2.zero, Mathf.Infinity, platformLayerMask);
 
             if (raycastHit.collider != null)
             {
@@ -36,5 +23,9 @@ public class Platform : MonoBehaviour
                 }
             }
         }
+    }
+    public void PlaceTower(TowerData data)
+    {
+        Instantiate(data.prefab, transform.position, Quaternion.identity, transform);
     }
 }
