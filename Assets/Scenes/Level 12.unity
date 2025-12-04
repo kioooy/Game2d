@@ -6519,13 +6519,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35e6aa090b3ea5d4fa9b927a25bca06a, type: 2}
   - {fileID: 11400000, guid: 3fa1e4212003be34395585ceb33f52d3, type: 2}
   - {fileID: 11400000, guid: 8d2c401908af4b046a663131fe87840d, type: 2}
-  _initialDelay: 1
+  _initialDelay: 20
   SnakePool: {fileID: 1649036939}
   SpiderPool: {fileID: 923439984}
   BearPool: {fileID: 1513744028}
   ShamanPool: {fileID: 0}
   ThiefPool: {fileID: 0}
   HarpoonFishPool: {fileID: 0}
+  LancerPool: {fileID: 0}
   _timeBetweenWaves: 3
   _waveCooldown: 5
   _isBetweenWaves: 0
