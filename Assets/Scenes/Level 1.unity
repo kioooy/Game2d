@@ -8385,7 +8385,7 @@ MonoBehaviour:
   HarpoonFishPool: {fileID: 0}
   LancerPool: {fileID: 0}
   _timeBetweenWaves: 15
-  _waveCooldown: 20
+  _waveCooldown: 15
   _isBetweenWaves: 0
 --- !u!4 &1635256074
 Transform:
