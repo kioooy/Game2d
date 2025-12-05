@@ -26,6 +26,22 @@ public class Platform : MonoBehaviour
     }
     public void PlaceTower(TowerData data)
     {
-        Instantiate(data.prefab, transform.position, Quaternion.identity, transform);
+        // Store platform position
+        Vector3 platformPosition = transform.position;
+        // Instantiate tower at platform position
+        GameObject towerInstance = Instantiate(data.prefab, platformPosition, Quaternion.identity);
+        
+        // Find the child object named "Tower" (the tower base)
+        Transform towerBase = towerInstance.transform.Find("Tower");
+        if (towerBase != null)
+        {
+            // Calculate the offset from root to tower base
+            Vector3 towerBaseOffset = towerBase.localPosition;
+            // Adjust root position so that tower base aligns with platform position
+            towerInstance.transform.position = platformPosition - towerBaseOffset;
+        }
+        
+        // Destroy the platform after placing the tower
+        Destroy(gameObject);
     }
 }
