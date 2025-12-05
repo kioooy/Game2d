@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
 
     private int _lives = 20;
     private int _coins = 300;
-
+    public int Coins => _coins;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -61,6 +62,15 @@ public class GameManager : MonoBehaviour
     public void SetTimeScale(float scale)
     {
         Time.timeScale = scale;
+    }
+
+    public void SpendCoins(int amount)
+    {
+        if(_coins >= amount)
+        {
+            _coins -= amount;
+            OnCoinRewardChanged?.Invoke(_coins);
+        }
     }
 
 }

@@ -1,12 +1,14 @@
 using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class UIController : MonoBehaviour
 {
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text coinRewardText;
+    [SerializeField] private TMP_Text notEnoughCoinsText;
 
     [SerializeField] private GameObject towerPanel; 
     [SerializeField] private TowerCard towerCardPrefab;
@@ -65,6 +67,7 @@ public class UIController : MonoBehaviour
     private void ShowTowerPanel()
     {
         towerPanel.SetActive(true);
+        Platform.towerPanelOpen = true;
         GameManager.Instance.SetTimeScale(0f);
         PopulateTowerCards();
     }
@@ -72,6 +75,7 @@ public class UIController : MonoBehaviour
     public void HideTowerPanel()
     {
         towerPanel.SetActive(false);
+        Platform.towerPanelOpen = false;
         GameManager.Instance.SetTimeScale(1f);
     }
 
@@ -94,7 +98,22 @@ public class UIController : MonoBehaviour
 
     private void handleTowerSelected(TowerData towerData)
     {
-        _currentPlatform.PlaceTower(towerData);
-        HideTowerPanel();
+        if(GameManager.Instance.Coins >= towerData.cost)
+        {
+            GameManager.Instance.SpendCoins(towerData.cost);
+            _currentPlatform.PlaceTower(towerData);
+            HideTowerPanel();
+        }
+        else
+        {
+            StartCoroutine(ShowNotEnoughCoinsText());
+        }
+    }
+
+    private IEnumerator ShowNotEnoughCoinsText()
+    {
+        notEnoughCoinsText.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(3f);
+        notEnoughCoinsText.gameObject.SetActive(false);
     }
 }
