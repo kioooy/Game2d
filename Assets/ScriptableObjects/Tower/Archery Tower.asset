@@ -16,7 +16,7 @@ MonoBehaviour:
   shootinterval: 1
   projectileSpeed: 15
   projectileDuration: 3
-  damage: 25
-  cost: 50
+  damage: 30
+  cost: 100
   sprite: {fileID: -4866884309602757033, guid: 17b43f5de3c6e6e498e63d54768ede6d, type: 3}
   prefab: {fileID: 722049293731623241, guid: b31ae0522f43b7549bf4249b36c8a6b1, type: 3}
