@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 
@@ -19,6 +20,17 @@ public class UIController : MonoBehaviour
 
     private Platform _currentPlatform;
 
+    [SerializeField] private Button speed1Button;
+
+    [SerializeField] private Button speed2Button;
+
+    [SerializeField] private Button speed3Button;
+
+    [SerializeField] private Color normalButtonColor = Color.white;
+    [SerializeField] private Color selectedButtonColor = Color.blue;
+    [SerializeField] private Color normalTextColor = Color.black;
+    [SerializeField] private Color selectedTextColor = Color.white;
+
     private void OnEnable()
     {
         Spawner.OnWaveChanged += UpdateWaveText;
@@ -35,6 +47,15 @@ public class UIController : MonoBehaviour
         GameManager.OnCoinRewardChanged -= UpdateCoinRewardText;
         Platform.OnPlatformClicked -= handlePlatformClicked;
         TowerCard.OnTowerSelected -= handleTowerSelected;
+    }
+
+    private void Start()
+    {
+        speed1Button.onClick.AddListener(() => SetGameSpeed(0.2f));
+        speed2Button.onClick.AddListener(() => SetGameSpeed(1f));
+        speed3Button.onClick.AddListener(() => SetGameSpeed(2f));
+
+        HighlightSelectedSpeedButton(GameManager.Instance.GameSpeed);
     }
 
 
@@ -115,5 +136,29 @@ public class UIController : MonoBehaviour
         notEnoughCoinsText.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(3f);
         notEnoughCoinsText.gameObject.SetActive(false);
+    }
+
+    private void SetGameSpeed(float timeScale)
+    {
+        HighlightSelectedSpeedButton(timeScale);
+        GameManager.Instance.SetGameSpeed(timeScale);
+    }
+
+    private void UpdateButtonVisual(Button button, bool isSelected)
+    {
+        button.image.color = isSelected ? selectedButtonColor : normalButtonColor;
+
+        TMP_Text text = button.GetComponentInChildren<TMP_Text>();
+        if (text != null)
+        {
+            text.color = isSelected ? selectedTextColor : normalTextColor;
+        }
+    }
+    
+    private void HighlightSelectedSpeedButton(float selectedSpeed)
+    {
+        UpdateButtonVisual(speed1Button, selectedSpeed == 0.2f);
+        UpdateButtonVisual(speed2Button, selectedSpeed == 1f);
+        UpdateButtonVisual(speed3Button, selectedSpeed == 2f);
     }
 }

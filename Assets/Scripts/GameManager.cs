@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private int _coins = 300;
     public int Coins => _coins;
     
+    private float _gameSpeed = 1f;
+    public float GameSpeed => _gameSpeed;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -62,6 +64,12 @@ public class GameManager : MonoBehaviour
     public void SetTimeScale(float scale)
     {
         Time.timeScale = scale;
+    }
+
+    public void SetGameSpeed(float newSpeed)
+    {
+        _gameSpeed = newSpeed;
+        SetTimeScale(_gameSpeed);
     }
 
     public void SpendCoins(int amount)
