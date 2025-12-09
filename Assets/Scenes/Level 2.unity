@@ -9442,9 +9442,9 @@ MonoBehaviour:
   towers:
   - {fileID: 11400000, guid: 0d497a8b8c977bb4dbd5e9d3afd02d24, type: 2}
   - {fileID: 11400000, guid: 3d9aa13deba2164499b2092ca402f675, type: 2}
-  speed1Button: {fileID: 0}
-  speed2Button: {fileID: 0}
-  speed3Button: {fileID: 0}
+  speed1Button: {fileID: 130512772}
+  speed2Button: {fileID: 1657091176}
+  speed3Button: {fileID: 1018954248}
   normalButtonColor: {r: 1, g: 1, b: 1, a: 1}
   selectedButtonColor: {r: 0, g: 0, b: 1, a: 1}
   normalTextColor: {r: 0, g: 0, b: 0, a: 1}
