@@ -1260,6 +1260,7 @@ MonoBehaviour:
   cardsContainer: {fileID: 1706691622}
   towers:
   - {fileID: 11400000, guid: 0d497a8b8c977bb4dbd5e9d3afd02d24, type: 2}
+  - {fileID: 11400000, guid: 3d9aa13deba2164499b2092ca402f675, type: 2}
   speed1Button: {fileID: 2063849802}
   speed2Button: {fileID: 92408259}
   speed3Button: {fileID: 1586150714}
