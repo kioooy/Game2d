@@ -3943,6 +3943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5575200743042322281, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6869152553764050926, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_SortingOrder
       value: -1
@@ -6417,7 +6421,6 @@ GameObject:
   - component: {fileID: 726269670}
   - component: {fileID: 726269669}
   - component: {fileID: 726269672}
-  - component: {fileID: 726269673}
   m_Layer: 5
   m_Name: DefenseTowerPanel
   m_TagString: Untagged
@@ -6543,29 +6546,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!223 &726269673
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726269668}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 3
-  m_TargetDisplay: 0
 --- !u!1 &754993055
 GameObject:
   m_ObjectHideFlags: 0
@@ -6766,6 +6746,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5575200743042322281, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6869152553764050926, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_SortingOrder
       value: -1
@@ -6944,6 +6928,10 @@ PrefabInstance:
     - target: {fileID: 4575400268745761274, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_Name
       value: Platform (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575200743042322281, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869152553764050926, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_SortingOrder
@@ -7230,6 +7218,10 @@ PrefabInstance:
     - target: {fileID: 4575400268745761274, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_Name
       value: Platform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575200743042322281, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869152553764050926, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_SortingOrder
@@ -7628,6 +7620,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5575200743042322281, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6869152553764050926, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_SortingOrder
       value: -1
@@ -7819,6 +7815,10 @@ PrefabInstance:
     - target: {fileID: 4575400268745761274, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_Name
       value: Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575200743042322281, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869152553764050926, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_SortingOrder
@@ -8465,6 +8465,10 @@ PrefabInstance:
     - target: {fileID: 4575400268745761274, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_Name
       value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575200743042322281, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869152553764050926, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_SortingOrder
