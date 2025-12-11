@@ -9458,7 +9458,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1bb87cf498d2a134dac0630c9c97b31e, type: 2}
   - {fileID: 11400000, guid: fa21fa64d5b0b444786bbbec1905c8df, type: 2}
   - {fileID: 11400000, guid: 5564612eba218634fa266bf532bd15bb, type: 2}
-  _initialDelay: 25
+  _initialDelay: 20
   SnakePool: {fileID: 1509608857}
   SpiderPool: {fileID: 2104495884}
   BearPool: {fileID: 903695424}
@@ -9466,8 +9466,8 @@ MonoBehaviour:
   ThiefPool: {fileID: 0}
   HarpoonFishPool: {fileID: 0}
   LancerPool: {fileID: 0}
-  _timeBetweenWaves: 15
-  _waveCooldown: 15
+  _timeBetweenWaves: 10
+  _waveCooldown: 10
   _isBetweenWaves: 0
 --- !u!4 &1635256074
 Transform:
