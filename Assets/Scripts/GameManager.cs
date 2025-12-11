@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
 
     private int _lives = 20;
-    private int _coins = 300;
+    private int _coins = 150;
     public int Coins => _coins;
     
     private float _gameSpeed = 1f;
