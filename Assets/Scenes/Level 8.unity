@@ -2564,8 +2564,11 @@ MonoBehaviour:
   normalTextColor: {r: 0, g: 0, b: 0, a: 1}
   selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   countdownText: {fileID: 0}
   countdownPanel: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!114 &1149226076
