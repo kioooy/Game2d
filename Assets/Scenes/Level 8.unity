@@ -2328,6 +2328,20 @@ MonoBehaviour:
   waveText: {fileID: 71224651}
   livesText: {fileID: 1321861413}
   coinRewardText: {fileID: 1034773657}
+  notEnoughCoinsText: {fileID: 0}
+  towerPanel: {fileID: 0}
+  towerCardPrefab: {fileID: 0}
+  cardsContainer: {fileID: 0}
+  towers: []
+  speed1Button: {fileID: 0}
+  speed2Button: {fileID: 0}
+  speed3Button: {fileID: 0}
+  normalButtonColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedButtonColor: {r: 0, g: 0, b: 1, a: 1}
+  normalTextColor: {r: 0, g: 0, b: 0, a: 1}
+  selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
+  countdownText: {fileID: 0}
+  countdownPanel: {fileID: 0}
 --- !u!114 &1149226076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3290,11 +3304,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
   waves: []
+  _initialDelay: 25
   SnakePool: {fileID: 0}
   SpiderPool: {fileID: 0}
   BearPool: {fileID: 0}
   ShamanPool: {fileID: 648774676}
   ThiefPool: {fileID: 0}
+  HarpoonFishPool: {fileID: 0}
+  LancerPool: {fileID: 0}
   _timeBetweenWaves: 3
   _waveCooldown: 0
   _isBetweenWaves: 0
@@ -3307,7 +3324,7 @@ Transform:
   m_GameObject: {fileID: 1752765401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.48, y: -2.76, z: 0}
+  m_LocalPosition: {x: -5.97, y: -5.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
