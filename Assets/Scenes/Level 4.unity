@@ -120,6 +120,7 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &30005542
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +159,8 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &12007324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,6 +285,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7092620787048566745, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
   m_PrefabInstance: {fileID: 20056183}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1001 &40596620
 PrefabInstance:
@@ -738,7 +744,11 @@ Transform:
   m_Father: {fileID: 218795269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &214632378
+=======
+--- !u!1 &213479821
+>>>>>>> Stashed changes
 =======
 --- !u!1 &213479821
 >>>>>>> Stashed changes
@@ -749,6 +759,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   - component: {fileID: 214632379}
   - component: {fileID: 214632382}
@@ -761,10 +772,16 @@ GameObject:
   m_Layer: 0
   m_Name: 'TowerPlacement '
 >>>>>>> Stashed changes
+=======
+  - component: {fileID: 213479822}
+  m_Layer: 0
+  m_Name: 'TowerPlacement '
+>>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_IsActive: 0
 --- !u!224 &214632379
@@ -774,10 +791,16 @@ RectTransform:
 --- !u!4 &213479822
 Transform:
 >>>>>>> Stashed changes
+=======
+  m_IsActive: 1
+--- !u!4 &213479822
+Transform:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 214632378}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -892,6 +915,8 @@ CanvasRenderer:
   m_GameObject: {fileID: 214632378}
   m_CullTransparentMesh: 1
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 213479821}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -907,6 +932,9 @@ CanvasRenderer:
   - {fileID: 1565537986}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &218795267
 GameObject:
@@ -943,7 +971,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3fa1e4212003be34395585ceb33f52d3, type: 2}
   - {fileID: 11400000, guid: 8d2c401908af4b046a663131fe87840d, type: 2}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   _initialDelay: 20
+=======
+  _initialDelay: 25
+>>>>>>> Stashed changes
 =======
   _initialDelay: 25
 >>>>>>> Stashed changes
@@ -1495,7 +1527,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 1114329585}
+=======
+  - {fileID: 1263583860}
+>>>>>>> Stashed changes
 =======
   - {fileID: 1263583860}
 >>>>>>> Stashed changes
@@ -1986,7 +2022,11 @@ Transform:
   m_PrefabInstance: {fileID: 2075392396}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &755190843
+=======
+--- !u!1 &722987815
+>>>>>>> Stashed changes
 =======
 --- !u!1 &722987815
 >>>>>>> Stashed changes
@@ -1998,15 +2038,21 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 755190847}
   - component: {fileID: 755190846}
   - component: {fileID: 755190845}
   - component: {fileID: 755190844}
 =======
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 722987816}
   - component: {fileID: 722987819}
   - component: {fileID: 722987818}
   - component: {fileID: 722987817}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_Layer: 5
   m_Name: Speed3Button
@@ -2016,8 +2062,11 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!114 &755190844
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!224 &722987816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2039,6 +2088,9 @@ RectTransform:
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &722987817
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2046,7 +2098,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 755190843}
+=======
+  m_GameObject: {fileID: 722987815}
+>>>>>>> Stashed changes
 =======
   m_GameObject: {fileID: 722987815}
 >>>>>>> Stashed changes
@@ -2084,17 +2140,23 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_TargetGraphic: {fileID: 755190845}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &755190845
 =======
+=======
+>>>>>>> Stashed changes
   m_TargetGraphic: {fileID: 722987818}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &722987818
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2102,7 +2164,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 755190843}
+=======
+  m_GameObject: {fileID: 722987815}
+>>>>>>> Stashed changes
 =======
   m_GameObject: {fileID: 722987815}
 >>>>>>> Stashed changes
@@ -2130,7 +2196,11 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!222 &755190846
+=======
+--- !u!222 &722987819
+>>>>>>> Stashed changes
 =======
 --- !u!222 &722987819
 >>>>>>> Stashed changes
@@ -2139,6 +2209,7 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 755190843}
   m_CullTransparentMesh: 1
@@ -2162,6 +2233,10 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+  m_GameObject: {fileID: 722987815}
+  m_CullTransparentMesh: 1
+>>>>>>> Stashed changes
 =======
   m_GameObject: {fileID: 722987815}
   m_CullTransparentMesh: 1
@@ -6130,7 +6205,11 @@ MonoBehaviour:
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1052204299
+=======
+--- !u!1 &1077166145
+>>>>>>> Stashed changes
 =======
 --- !u!1 &1077166145
 >>>>>>> Stashed changes
@@ -6142,6 +6221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 1052204303}
   - component: {fileID: 1052204302}
   - component: {fileID: 1052204300}
@@ -6149,11 +6229,16 @@ GameObject:
   m_Layer: 5
   m_Name: CountDownText
 =======
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 1077166146}
   - component: {fileID: 1077166148}
   - component: {fileID: 1077166147}
   m_Layer: 5
   m_Name: Text (TMP)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6161,8 +6246,11 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!114 &1052204300
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!224 &1077166146
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6183,6 +6271,9 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1077166147
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6190,7 +6281,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1052204299}
+=======
+  m_GameObject: {fileID: 1077166145}
+>>>>>>> Stashed changes
 =======
   m_GameObject: {fileID: 1077166145}
 >>>>>>> Stashed changes
@@ -6208,10 +6303,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_text: 'XX
 
 
 '
+=======
+  m_text: '>>>'
+>>>>>>> Stashed changes
 =======
   m_text: '>>>'
 >>>>>>> Stashed changes
@@ -6224,8 +6323,13 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+=======
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+>>>>>>> Stashed changes
 =======
     rgba: 4281479730
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
@@ -6254,8 +6358,13 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
+=======
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+>>>>>>> Stashed changes
 =======
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -6290,7 +6399,11 @@ MonoBehaviour:
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_margin: {x: -225.54398, y: 0, z: -171.24634, w: 0}
+=======
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+>>>>>>> Stashed changes
 =======
   m_margin: {x: 0, y: 0, z: 0, w: 0}
 >>>>>>> Stashed changes
@@ -6299,6 +6412,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 --- !u!223 &1052204301
 Canvas:
@@ -6327,11 +6441,15 @@ Canvas:
 =======
 --- !u!222 &1077166148
 >>>>>>> Stashed changes
+=======
+--- !u!222 &1077166148
+>>>>>>> Stashed changes
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 1052204299}
   m_CullTransparentMesh: 1
@@ -6354,6 +6472,10 @@ RectTransform:
   m_AnchoredPosition: {x: 633, y: -13.200012}
   m_SizeDelta: {x: 124.06, y: 71.91}
   m_Pivot: {x: 0.5, y: 1}
+=======
+  m_GameObject: {fileID: 1077166145}
+  m_CullTransparentMesh: 1
+>>>>>>> Stashed changes
 =======
   m_GameObject: {fileID: 1077166145}
   m_CullTransparentMesh: 1
@@ -6551,7 +6673,11 @@ Transform:
   m_Father: {fileID: 218795269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1205510959
+=======
+--- !u!1 &1196833987
+>>>>>>> Stashed changes
 =======
 --- !u!1 &1196833987
 >>>>>>> Stashed changes
@@ -6562,6 +6688,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   - component: {fileID: 1205510960}
   - component: {fileID: 1205510962}
@@ -6704,10 +6831,15 @@ GameObject:
   - component: {fileID: 1224955990}
   - component: {fileID: 1224955992}
 =======
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 1196833988}
   - component: {fileID: 1196833991}
   - component: {fileID: 1196833990}
   - component: {fileID: 1196833989}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_Layer: 5
   m_Name: Speed1Button
@@ -6717,7 +6849,11 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!224 &1224955989
+=======
+--- !u!224 &1196833988
+>>>>>>> Stashed changes
 =======
 --- !u!224 &1196833988
 >>>>>>> Stashed changes
@@ -6727,7 +6863,11 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1224955988}
+=======
+  m_GameObject: {fileID: 1196833987}
+>>>>>>> Stashed changes
 =======
   m_GameObject: {fileID: 1196833987}
 >>>>>>> Stashed changes
@@ -6737,8 +6877,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 2119606578}
   m_Father: {fileID: 1302116617}
+=======
+  - {fileID: 1393343319}
+  m_Father: {fileID: 773958029}
+>>>>>>> Stashed changes
 =======
   - {fileID: 1393343319}
   m_Father: {fileID: 773958029}
@@ -6750,7 +6895,11 @@ RectTransform:
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!114 &1224955990
+=======
+--- !u!114 &1196833989
+>>>>>>> Stashed changes
 =======
 --- !u!114 &1196833989
 >>>>>>> Stashed changes
@@ -6759,6 +6908,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 1224955988}
   m_Enabled: 1
@@ -6802,6 +6952,9 @@ MonoBehaviour:
 =======
   m_GameObject: {fileID: 1196833987}
 >>>>>>> Stashed changes
+=======
+  m_GameObject: {fileID: 1196833987}
+>>>>>>> Stashed changes
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -6836,11 +6989,14 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_TargetGraphic: {fileID: 1224955990}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
 =======
+=======
+>>>>>>> Stashed changes
   m_TargetGraphic: {fileID: 1196833990}
   m_OnClick:
     m_PersistentCalls:
@@ -7081,6 +7237,9 @@ RectTransform:
   m_AnchoredPosition: {x: 6.799988, y: -4.8000183}
   m_SizeDelta: {x: 110.24, y: 28.373}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1294582839
 GameObject:
@@ -7118,6 +7277,7 @@ MonoBehaviour:
   livesText: {fileID: 304699026}
   coinRewardText: {fileID: 1429623362}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   notEnoughCoinsText: {fileID: 1114329586}
   towerPanel: {fileID: 214632378}
   towerCardPrefab: {fileID: 6477417852125700067, guid: 18b0673dd7ec3644daac14b0224f8f42, type: 3}
@@ -7129,6 +7289,8 @@ MonoBehaviour:
   speed2Button: {fileID: 519215071}
   speed3Button: {fileID: 755190844}
 =======
+=======
+>>>>>>> Stashed changes
   notEnoughCoinsText: {fileID: 1263583858}
   towerPanel: {fileID: 1483596774}
   towerCardPrefab: {fileID: 6477417852125700067, guid: 18b0673dd7ec3644daac14b0224f8f42, type: 3}
@@ -7137,14 +7299,20 @@ MonoBehaviour:
   speed1Button: {fileID: 1196833989}
   speed2Button: {fileID: 827904886}
   speed3Button: {fileID: 722987817}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   normalButtonColor: {r: 1, g: 1, b: 1, a: 1}
   selectedButtonColor: {r: 0, g: 0, b: 1, a: 1}
   normalTextColor: {r: 0, g: 0, b: 0, a: 1}
   selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   countdownText: {fileID: 1052204300}
   countdownPanel: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!114 &1294582841
@@ -7239,7 +7407,11 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1302116616
+=======
+--- !u!1 &1393343318
+>>>>>>> Stashed changes
 =======
 --- !u!1 &1393343318
 >>>>>>> Stashed changes
@@ -7251,16 +7423,22 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 1302116617}
   - component: {fileID: 1302116619}
   m_Layer: 5
   m_Name: SpeedButtons
 =======
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 1393343319}
   - component: {fileID: 1393343321}
   - component: {fileID: 1393343320}
   m_Layer: 5
   m_Name: Text (TMP)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7268,7 +7446,11 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!224 &1302116617
+=======
+--- !u!224 &1393343319
+>>>>>>> Stashed changes
 =======
 --- !u!224 &1393343319
 >>>>>>> Stashed changes
@@ -7277,6 +7459,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 1302116616}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -7296,6 +7479,8 @@ RectTransform:
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1302116619
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 1393343318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -7310,12 +7495,16 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1393343320
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 1302116616}
   m_Enabled: 1
@@ -7338,6 +7527,8 @@ MonoBehaviour:
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 1393343318}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -7431,6 +7622,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393343318}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1429623361
 GameObject:
@@ -7911,6 +8105,7 @@ Transform:
   m_PrefabInstance: {fileID: 766890146}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1625387066
 GameObject:
   m_ObjectHideFlags: 0
@@ -8044,6 +8239,8 @@ CanvasRenderer:
   m_GameObject: {fileID: 1625387066}
   m_CullTransparentMesh: 1
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &1610444296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8106,6 +8303,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7092620787048566745, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
   m_PrefabInstance: {fileID: 1610444296}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1632306519
 GameObject:
@@ -9097,6 +9297,7 @@ Tilemap:
     e32: 0
     e33: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1001 &1766060389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9163,6 +9364,9 @@ Transform:
 =======
 --- !u!1 &1879301913
 >>>>>>> Stashed changes
+=======
+--- !u!1 &1879301913
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9171,16 +9375,22 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - component: {fileID: 1768432096}
   - component: {fileID: 1768432097}
   m_Layer: 5
   m_Name: CardsContainer
 =======
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 1879301914}
   - component: {fileID: 1879301916}
   - component: {fileID: 1879301915}
   m_Layer: 5
   m_Name: TitleText
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9188,7 +9398,11 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!224 &1768432096
+=======
+--- !u!224 &1879301914
+>>>>>>> Stashed changes
 =======
 --- !u!224 &1879301914
 >>>>>>> Stashed changes
@@ -9198,7 +9412,11 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1768432095}
+=======
+  m_GameObject: {fileID: 1879301913}
+>>>>>>> Stashed changes
 =======
   m_GameObject: {fileID: 1879301913}
 >>>>>>> Stashed changes
@@ -9207,6 +9425,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_Father: {fileID: 214632379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9217,6 +9436,8 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768432097
 =======
+=======
+>>>>>>> Stashed changes
   m_Father: {fileID: 1483596778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -9225,12 +9446,16 @@ RectTransform:
   m_SizeDelta: {x: 1200, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1879301915
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_GameObject: {fileID: 1768432095}
   m_Enabled: 1
@@ -9315,6 +9540,8 @@ Transform:
   m_PrefabInstance: {fileID: 1798251339}
   m_PrefabAsset: {fileID: 0}
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 1879301913}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -9408,6 +9635,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879301913}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &1952725963
 GameObject:
@@ -9992,7 +10222,11 @@ SceneRoots:
   - {fileID: 1507494673}
   - {fileID: 1718649558}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 30005543}
+=======
+  - {fileID: 213479822}
+>>>>>>> Stashed changes
 =======
   - {fileID: 213479822}
 >>>>>>> Stashed changes
