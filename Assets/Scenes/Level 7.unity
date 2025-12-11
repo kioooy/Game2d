@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
   waves: []
-  _initialDelay: 25
+  _initialDelay: 20
   SnakePool: {fileID: 0}
   SpiderPool: {fileID: 0}
   BearPool: {fileID: 0}
