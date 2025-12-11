@@ -4947,8 +4947,7 @@ MonoBehaviour:
   selectedButtonColor: {r: 0, g: 0, b: 1, a: 1}
   normalTextColor: {r: 0, g: 0, b: 0, a: 1}
   selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
-  countdownText: {fileID: 1994884188}
-  countdownPanel: {fileID: 0}
+  menuCountdownText: {fileID: 1994884188}
 --- !u!1 &489955125
 GameObject:
   m_ObjectHideFlags: 0
@@ -9469,6 +9468,7 @@ MonoBehaviour:
   _timeBetweenWaves: 10
   _waveCooldown: 10
   _isBetweenWaves: 0
+  countdownText: {fileID: 0}
 --- !u!4 &1635256074
 Transform:
   m_ObjectHideFlags: 0

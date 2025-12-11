@@ -380,6 +380,7 @@ MonoBehaviour:
   _timeBetweenWaves: 3
   _waveCooldown: 5
   _isBetweenWaves: 0
+  countdownText: {fileID: 0}
 --- !u!4 &40387865
 Transform:
   m_ObjectHideFlags: 0
@@ -1704,8 +1705,7 @@ MonoBehaviour:
   selectedButtonColor: {r: 0, g: 0, b: 1, a: 1}
   normalTextColor: {r: 0, g: 0, b: 0, a: 1}
   selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
-  countdownText: {fileID: 1395727532}
-  countdownPanel: {fileID: 0}
+  menuCountdownText: {fileID: 1395727532}
 --- !u!114 &548241091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1786,6 +1786,7 @@ RectTransform:
   - {fileID: 920832086}
   - {fileID: 1395727535}
   - {fileID: 2038689672}
+  - {fileID: 1504078771}
   - {fileID: 2032573597}
   - {fileID: 35876524}
   - {fileID: 1313454676}
@@ -3698,13 +3699,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504078770}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08964052, y: 0.882121, z: 0}
-  m_LocalScale: {x: 0.101690896, y: -1.0937641, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7, y: 501, z: -9719.999}
+  m_LocalScale: {x: 20, y: 20, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1162654528}
-  m_Father: {fileID: 2032573597}
+  m_Father: {fileID: 548241094}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1504078772
 SpriteRenderer:
@@ -7311,8 +7312,7 @@ Transform:
   m_LocalPosition: {x: -10.63, y: 517.13, z: -9719.999}
   m_LocalScale: {x: 196.67447, y: -18.285479, z: 108}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1504078771}
+  m_Children: []
   m_Father: {fileID: 548241094}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2032573598

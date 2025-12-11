@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -28,6 +29,9 @@ public class Spawner : MonoBehaviour
     public float _timeBetweenWaves = 15f;
     public float _waveCooldown;
     public bool _isBetweenWaves = false;
+
+    [SerializeField] private TMP_Text countdownText;
+    private bool _isCountdownActive = false;
 
     private void Awake()
     {
@@ -61,10 +65,19 @@ public class Spawner : MonoBehaviour
         _initialTimer = _initialDelay;
         _isInitialDelay = true;
         OnWaveChanged?.Invoke(_currentWaveIndex);
+
+        // THÊM: Ẩn countdown text ban đầu
+        if (countdownText != null)
+        {
+            countdownText.gameObject.SetActive(false);
+        }
     }
 
     void Update()
     {
+
+        // THÊM: Cập nhật hiển thị countdown
+        UpdateCountdownDisplay();
         // NEW: Handle initial delay
         if (_isInitialDelay)
         {
@@ -109,6 +122,35 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    // THÊM: Phương thức cập nhật hiển thị countdown
+    private void UpdateCountdownDisplay()
+    {
+        if (countdownText == null) return;
+
+        if (_isInitialDelay)
+        {
+            _isCountdownActive = true;
+            int seconds = Mathf.CeilToInt(_initialTimer);
+            countdownText.text = $"Bắt đầu sau: {seconds}s";
+            countdownText.gameObject.SetActive(true);
+        }
+        else if (_isBetweenWaves)
+        {
+            _isCountdownActive = true;
+            int seconds = Mathf.CeilToInt(_waveCooldown);
+            countdownText.text = $"Wave tiếp theo: {seconds}s";
+            countdownText.gameObject.SetActive(true);
+        }
+        else
+        {
+            if (_isCountdownActive)
+            {
+                _isCountdownActive = false;
+                countdownText.gameObject.SetActive(false);
+            }
+        }
+    }
+
     private void SpawnEnemy()
     {
         if (_poolDictionary.TryGetValue(CurrentWave.enemyType, out var pool))
@@ -143,37 +185,15 @@ public class Spawner : MonoBehaviour
     {
         return Mathf.Max(0f, _initialTimer);
     }
-
-    // ===== THÊM CODE MỚI Ở ĐÂY =====
-    // Thêm phương thức lấy thời gian chờ còn lại
-    public float GetRemainingWaitTime()
+    // THÊM: Phương thức public để lấy thời gian chờ wave
+    public float GetRemainingWaveCooldown()
     {
-        if (_isInitialDelay)
-        {
-            return _initialTimer;
-        }
-        else if (_isBetweenWaves)
-        {
-            return _waveCooldown;
-        }
-        else
-        {
-            return 0f;
-        }
+        return Mathf.Max(0f, _waveCooldown);
     }
 
-    // Thêm phương thức kiểm tra đang trong thời gian chờ
-    public bool IsInWaitingPhase()
+    // THÊM: Phương thức để biết có đang trong countdown không
+    public bool IsCountdownActive()
     {
-        return _isInitialDelay || _isBetweenWaves;
+        return _isCountdownActive;
     }
-
-    // Thêm phương thức lấy loại thời gian chờ (1: Initial, 2: Between Waves)
-    public int GetCurrentWaitType()
-    {
-        if (_isInitialDelay) return 1;
-        else if (_isBetweenWaves) return 2;
-        else return 0;
-    }
-    // ===== KẾT THÚC CODE MỚI =====
 }
