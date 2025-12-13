@@ -684,8 +684,7 @@ MonoBehaviour:
   selectedButtonColor: {r: 0, g: 0, b: 1, a: 1}
   normalTextColor: {r: 0, g: 0, b: 0, a: 1}
   selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
-  countdownText: {fileID: 116576242}
-  countdownPanel: {fileID: 0}
+  menuCountdownText: {fileID: 116576242}
 --- !u!114 &248158390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5277,7 +5276,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Not Enough Coins
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 42df1c7856584b6b8db9a509b6b10074, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7864,6 +7863,7 @@ MonoBehaviour:
   _timeBetweenWaves: 3
   _waveCooldown: 8
   _isBetweenWaves: 0
+  countdownText: {fileID: 0}
 --- !u!4 &1239257458
 Transform:
   m_ObjectHideFlags: 0
