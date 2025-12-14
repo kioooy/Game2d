@@ -99,7 +99,6 @@ public class UIController : MonoBehaviour
     {
         towerPanel.SetActive(true);
         Platform.towerPanelOpen = true;
-        GameManager.Instance.SetTimeScale(0f);
         PopulateTowerCards();
     }
 
@@ -107,7 +106,6 @@ public class UIController : MonoBehaviour
     {
         towerPanel.SetActive(false);
         Platform.towerPanelOpen = false;
-        GameManager.Instance.SetTimeScale(1f);
     }
 
     private void PopulateTowerCards()
@@ -144,7 +142,7 @@ public class UIController : MonoBehaviour
     private IEnumerator ShowNotEnoughCoinsText()
     {
         notEnoughCoinsText.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSeconds(3f);
         notEnoughCoinsText.gameObject.SetActive(false);
     }
 
