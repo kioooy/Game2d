@@ -1198,6 +1198,7 @@ MonoBehaviour:
   selectedButtonColor: {r: 0, g: 0, b: 1, a: 1}
   normalTextColor: {r: 0, g: 0, b: 0, a: 1}
   selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
+  menuCountdownText: {fileID: 0}
 --- !u!114 &501976663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7393,6 +7394,7 @@ MonoBehaviour:
   _timeBetweenWaves: 3
   _waveCooldown: 5
   _isBetweenWaves: 0
+  countdownText: {fileID: 0}
 --- !u!4 &1862998144
 Transform:
   m_ObjectHideFlags: 0
