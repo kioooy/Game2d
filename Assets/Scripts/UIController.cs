@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private TowerData[] towers;
     private List<GameObject> activeCards = new List<GameObject>();
     private Platform _currentPlatform;
+
     [SerializeField] private Button speed1Button;
     [SerializeField] private Button speed2Button;
     [SerializeField] private Button speed3Button;
@@ -24,18 +27,16 @@ public class UIController : MonoBehaviour
     [SerializeField] private Color normalTextColor = Color.black;
     [SerializeField] private Color selectedTextColor = Color.white;
 
+    [SerializeField] private GameObject pausePanel;
+    private bool _isGamePaused = false;
+
+
     // THÊM: Tham chiếu đến Spawner để lấy thông tin countdown
     private Spawner _spawner;
 
     // THÊM: Text để hiển thị countdown trên MenuPanel
     [SerializeField] private TMP_Text menuCountdownText;
 
-    // THÊM: Biến cho chức năng Pause
-    [SerializeField] private GameObject pausePanel;
-    [SerializeField] private Button pauseButton;
-    [SerializeField] private Button resumeButton;
-    [SerializeField] private Button restartButton;
-    [SerializeField] private Button backToMapButton;
 
     private void OnEnable()
     {
@@ -68,33 +69,7 @@ public class UIController : MonoBehaviour
         speed3Button.onClick.AddListener(() => SetGameSpeed(2f));
         HighlightSelectedSpeedButton(GameManager.Instance.GameSpeed);
 
-        // THÊM: Khởi tạo Pause Panel
-        if (pausePanel != null)
-        {
-            pausePanel.SetActive(false);
-        }
-
-        // THÊM: Thiết lập sự kiện cho nút pause
-        if (pauseButton != null)
-        {
-            pauseButton.onClick.AddListener(TogglePausePanel);
-        }
-
-        // THÊM: Thiết lập sự kiện cho các nút trong pause panel
-        if (resumeButton != null)
-        {
-            resumeButton.onClick.AddListener(ResumeGame);
-        }
-
-        if (restartButton != null)
-        {
-            restartButton.onClick.AddListener(RestartGame);
-        }
-
-        if (backToMapButton != null)
-        {
-            backToMapButton.onClick.AddListener(BackToMap);
-        }
+      
 
         // THÊM: Tìm Spawner trong scene
         _spawner = FindObjectOfType<Spawner>();
@@ -109,6 +84,12 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         UpdateMenuCountdownText();
+
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            TogglePause();
+        }
+
     }
 
     private void UpdateWaveText(int currentWave)
@@ -129,11 +110,6 @@ public class UIController : MonoBehaviour
     private void handlePlatformClicked(Platform platform)
     {
         _currentPlatform = platform;
-        ShowTowerPanel();
-    }
-
-    private void handlePlatformClickedOutside(Platform platform)
-    {
         ShowTowerPanel();
     }
 
@@ -211,6 +187,44 @@ public class UIController : MonoBehaviour
         UpdateButtonVisual(speed3Button, selectedSpeed == 2f);
     }
 
+    public void TogglePause()
+    {
+       
+
+        if (_isGamePaused)
+        {
+            pausePanel.SetActive(false);
+            _isGamePaused = false;
+            GameManager.Instance.SetTimeScale(GameManager.Instance.GameSpeed);
+        }
+        else
+        {
+            pausePanel.SetActive(true);
+            _isGamePaused = true;
+            GameManager.Instance.SetTimeScale(0f);
+        }
+    }
+
+    public void RestartLevel()
+    {
+        GameManager.Instance.SetTimeScale(1f);
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex);
+    }
+
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+Application.Quit();
+#endif
+}
+    
+
+
+
     // THÊM: Cập nhật countdown text trên MenuPanel
     private void UpdateMenuCountdownText()
     {
@@ -236,57 +250,5 @@ public class UIController : MonoBehaviour
         }
     }
 
-    // THÊM: Các phương thức cho chức năng Pause
-    private void TogglePausePanel()
-    {
-        bool isActive = !pausePanel.activeSelf;
-        pausePanel.SetActive(isActive);
-
-        // Dừng hoặc tiếp tục game
-        if (isActive)
-        {
-            Time.timeScale = 0f; // Dừng game
-        }
-        else
-        {
-            // Khôi phục tốc độ game trước khi pause
-            Time.timeScale = GameManager.Instance.GameSpeed;
-        }
-
-        // Cập nhật trạng thái của PauseButton
-        if (pauseButton != null)
-        {
-            pauseButton.interactable = !isActive;
-        }
-    }
-
-    private void ResumeGame()
-    {
-        pausePanel.SetActive(false);
-        Time.timeScale = GameManager.Instance.GameSpeed; // Khôi phục tốc độ game
-
-        if (pauseButton != null)
-        {
-            pauseButton.interactable = true;
-        }
-    }
-
-    private void RestartGame()
-    {
-        // Tải lại scene hiện tại
-        string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneName);
-
-        // Khôi phục time scale khi restart
-        Time.timeScale = 1f;
-    }
-
-    private void BackToMap()
-    {
-        // Tải scene LevelSelect (giả sử tên scene là "LevelSelect")
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelect");
-
-        // Khôi phục time scale khi chuyển scene
-        Time.timeScale = 1f;
-    }
+  
 }
