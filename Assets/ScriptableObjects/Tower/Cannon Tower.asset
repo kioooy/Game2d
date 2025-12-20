@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Cannon Tower
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   range: 5.5
-  shootinterval: 1
-  projectileSpeed: 10
+  shootinterval: 2.5
+  projectileSpeed: 8
   projectileDuration: 3
   damage: 90
   cost: 250

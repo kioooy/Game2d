@@ -29,7 +29,7 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private GameObject pausePanel;
     private bool _isGamePaused = false;
-
+    [SerializeField] private GameObject gmaeoverPanel;
 
     // THÊM: Tham chiếu đến Spawner để lấy thông tin countdown
     private Spawner _spawner;
@@ -95,11 +95,23 @@ public class UIController : MonoBehaviour
     private void UpdateWaveText(int currentWave)
     {
         waveText.text = $"Wave: {currentWave + 1}";
+
+        //if (currentWave > EndWave) // assuming you want to show the victory panel after wave 5
+        //{
+        //    // show victory panel
+        //}
     }
 
     private void UpdateLivesText(int currentLives)
     {
         livesText.text = $" {currentLives}";
+
+        if (currentLives == 0)
+        {
+            //show game over panel(Defeat)
+            ShowGameOver();
+
+        }
     }
 
     private void UpdateCoinRewardText(int currentCoinRewards)
@@ -232,6 +244,11 @@ Application.Quit();
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void ShowGameOver()
+    {
+        GameManager.Instance.SetTimeScale(0.05f);
+        gmaeoverPanel.SetActive(true);
+    }
 
     // THÊM: Cập nhật countdown text trên MenuPanel
     private void UpdateMenuCountdownText()
