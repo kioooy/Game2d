@@ -222,7 +222,15 @@ Application.Quit();
 #endif
 }
     
+    public void BackToMap(){
+        GameManager.Instance.SetTimeScale(1f);
+        SceneManager.LoadScene("LevelSelect");
+    }
 
+    public void MainMenu(){
+        GameManager.Instance.SetTimeScale(1f);
+        SceneManager.LoadScene("MainMenu");
+    }
 
 
     // THÊM: Cập nhật countdown text trên MenuPanel
