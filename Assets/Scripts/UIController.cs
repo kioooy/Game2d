@@ -69,7 +69,7 @@ public class UIController : MonoBehaviour
         speed3Button.onClick.AddListener(() => SetGameSpeed(2f));
         HighlightSelectedSpeedButton(GameManager.Instance.GameSpeed);
 
-      
+
 
         // THÊM: Tìm Spawner trong scene
         _spawner = FindObjectOfType<Spawner>();
@@ -201,7 +201,7 @@ public class UIController : MonoBehaviour
 
     public void TogglePause()
     {
-       
+
 
         if (_isGamePaused)
         {
@@ -232,14 +232,16 @@ public class UIController : MonoBehaviour
 #else
 Application.Quit();
 #endif
-}
-    
-    public void BackToMap(){
+    }
+
+    public void BackToMap()
+    {
         GameManager.Instance.SetTimeScale(1f);
         SceneManager.LoadScene("LevelSelect");
     }
 
-    public void MainMenu(){
+    public void MainMenu()
+    {
         GameManager.Instance.SetTimeScale(1f);
         SceneManager.LoadScene("MainMenu");
     }
@@ -275,5 +277,5 @@ Application.Quit();
         }
     }
 
-  
+
 }

@@ -171,6 +171,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 8
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &25010050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +386,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 14
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &224643969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +537,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 5
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &236552697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,6 +749,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 6
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &279867343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,6 +963,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 2
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &334690950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,6 +1278,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 1
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &456192789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1362,6 +1392,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 10
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &660403566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1627,6 +1662,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 4
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &685585584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1773,6 +1813,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 10
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &691794915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,6 +2122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 1
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!1 &805627468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,6 +2179,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 11
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &805627471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2338,6 +2393,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 9
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &821903693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2592,6 +2652,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 8
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &911138581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2738,6 +2803,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 7
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &945604732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2947,6 +3017,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 4
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1018526478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3157,6 +3232,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 15
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1061663942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3304,6 +3384,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 3
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1107804624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3553,7 +3638,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beedd1d97aa6cf74fb1d9ea1cc5cdd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
-  level: 1
+  level: 2
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1270047929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3863,6 +3953,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 14
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1300814913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4074,6 +4169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 9
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1346001984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4221,6 +4321,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 6
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1347982471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4402,6 +4507,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 5
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1594273579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4685,6 +4795,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 3
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1620762590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4894,6 +5009,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 12
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1737770356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5393,6 +5513,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 13
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1819676144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5540,6 +5665,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 11
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1824623815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5686,6 +5816,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 13
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1846893891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5895,6 +6030,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 15
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1870758547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6105,6 +6245,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 12
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &1958697673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6252,6 +6397,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelector
   level: 7
+  levelButton: {fileID: 0}
+  lockImage: {fileID: 0}
+  levelNumberText: {fileID: 0}
+  starsContainer: {fileID: 0}
+  starImages: []
 --- !u!114 &2101707135
 MonoBehaviour:
   m_ObjectHideFlags: 0

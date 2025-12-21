@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private int _lives = 20;
     private int _coins = 180;
     public int Coins => _coins;
-    
+
     private float _gameSpeed = 1f;
     public float GameSpeed => _gameSpeed;
     private void Awake()
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void SpendCoins(int amount)
     {
-        if(_coins >= amount)
+        if (_coins >= amount)
         {
             _coins -= amount;
             OnCoinRewardChanged?.Invoke(_coins);

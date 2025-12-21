@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     private int _enemiesRemoved;
     // NEW: Add initial delay before first wave
     // thoi gian choi game truoc khi bat dau wave dau tien khoang x giay
-    public float _initialDelay = 25f;
+    public float _initialDelay = 20f;
     private float _initialTimer;
     private bool _isInitialDelay = true;
     [SerializeField] private ObjectPooler SnakePool;
@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private ObjectPooler HarpoonFishPool;
     [SerializeField] private ObjectPooler LancerPool;
     private Dictionary<EnemyType, ObjectPooler> _poolDictionary;
-    public float _timeBetweenWaves = 15f;
+    public float _timeBetweenWaves = 10f;
     public float _waveCooldown;
     public bool _isBetweenWaves = false;
 

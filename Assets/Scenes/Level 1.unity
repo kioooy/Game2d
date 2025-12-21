@@ -5312,6 +5312,10 @@ MonoBehaviour:
   selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
   pausePanel: {fileID: 914842778}
   gmaeoverPanel: {fileID: 901507037}
+  victoryPanel: {fileID: 2082375944}
+  victoryWaveText: {fileID: 97301783}
+  victoryPlayAgainButton: {fileID: 1874538331}
+  victoryBackToMapButton: {fileID: 2146558093}
   menuCountdownText: {fileID: 1994884188}
 --- !u!1 &489955125
 GameObject:
@@ -11566,7 +11570,7 @@ MonoBehaviour:
   _timeBetweenWaves: 10
   _waveCooldown: 10
   _isBetweenWaves: 0
-  countdownText: {fileID: 0}
+  countdownText: {fileID: 1994884188}
 --- !u!4 &1635256074
 Transform:
   m_ObjectHideFlags: 0
@@ -12668,6 +12672,17 @@ Transform:
   - {fileID: 772421704}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1874538331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
+  m_PrefabInstance: {fileID: 183441209}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1917495321
 GameObject:
   m_ObjectHideFlags: 0
@@ -13431,7 +13446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2082375945
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13656,6 +13671,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140909293}
   m_CullTransparentMesh: 1
+--- !u!114 &2146558093 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
+  m_PrefabInstance: {fileID: 1775374131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1001 &7458641162439714407
 PrefabInstance:
   m_ObjectHideFlags: 0
