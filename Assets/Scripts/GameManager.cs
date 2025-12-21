@@ -4,17 +4,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
     public static event Action<int> OnLivesChanged;
     public static event Action<int> OnCoinRewardChanged;
-
-
     private int _lives = 20;
     private int _coins = 180;
     public int Coins => _coins;
 
     private float _gameSpeed = 1f;
     public float GameSpeed => _gameSpeed;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -26,15 +24,17 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
+
     private void OnEnable()
     {
         Enemy.OnEnemyReachedEnd += HandleEnemyReachedEnd;
         Enemy.OnEnemyDestroyed += HandleEnemyDestroyed;
     }
+
     private void OnDisable()
     {
         Enemy.OnEnemyReachedEnd -= HandleEnemyReachedEnd;
-        Enemy.OnEnemyDestroyed += HandleEnemyDestroyed;
+        Enemy.OnEnemyDestroyed -= HandleEnemyDestroyed;
     }
 
     private void Start()
@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
         _lives = Mathf.Max(0, _lives - data.damage);
         OnLivesChanged?.Invoke(_lives);
     }
-
 
     private void HandleEnemyDestroyed(Enemy enemy)
     {
@@ -81,4 +80,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ResetLevelProgression()
+    {
+        for (int i = 2; i <= 15; i++)
+        {
+            PlayerPrefs.DeleteKey("LevelUnlocked_" + i);
+        }
+        PlayerPrefs.Save();
+    }
 }

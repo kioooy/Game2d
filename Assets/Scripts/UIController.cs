@@ -18,7 +18,6 @@ public class UIController : MonoBehaviour
     [SerializeField] private TowerData[] towers;
     private List<GameObject> activeCards = new List<GameObject>();
     private Platform _currentPlatform;
-
     [SerializeField] private Button speed1Button;
     [SerializeField] private Button speed2Button;
     [SerializeField] private Button speed3Button;
@@ -26,17 +25,15 @@ public class UIController : MonoBehaviour
     [SerializeField] private Color selectedButtonColor = Color.blue;
     [SerializeField] private Color normalTextColor = Color.black;
     [SerializeField] private Color selectedTextColor = Color.white;
-
     [SerializeField] private GameObject pausePanel;
     private bool _isGamePaused = false;
-    [SerializeField] private GameObject gmaeoverPanel;
-
-    // THÊM: Tham chiếu đến Spawner để lấy thông tin countdown
+    [SerializeField] private GameObject gameoverPanel;
     private Spawner _spawner;
-
-    // THÊM: Text để hiển thị countdown trên MenuPanel
     [SerializeField] private TMP_Text menuCountdownText;
-
+    [SerializeField] private GameObject completedPanel;
+    [SerializeField] private Button completedPlayAgainButton;
+    [SerializeField] private Button completedBackToMapButton;
+    private bool _levelCompleted = false;
 
     private void OnEnable()
     {
@@ -45,6 +42,7 @@ public class UIController : MonoBehaviour
         GameManager.OnCoinRewardChanged += UpdateCoinRewardText;
         Platform.OnPlatformClicked += handlePlatformClicked;
         TowerCard.OnTowerSelected += handleTowerSelected;
+        Enemy.OnEnemyDestroyed += OnEnemyDestroyed;
     }
 
     private void OnDisable()
@@ -54,8 +52,8 @@ public class UIController : MonoBehaviour
         GameManager.OnCoinRewardChanged -= UpdateCoinRewardText;
         Platform.OnPlatformClicked -= handlePlatformClicked;
         TowerCard.OnTowerSelected -= handleTowerSelected;
+        Enemy.OnEnemyDestroyed -= OnEnemyDestroyed;
 
-        // THÊM: Khôi phục Time.timeScale khi disable
         if (Time.timeScale == 0f)
         {
             Time.timeScale = 1f;
@@ -69,15 +67,26 @@ public class UIController : MonoBehaviour
         speed3Button.onClick.AddListener(() => SetGameSpeed(2f));
         HighlightSelectedSpeedButton(GameManager.Instance.GameSpeed);
 
-
-
-        // THÊM: Tìm Spawner trong scene
         _spawner = FindObjectOfType<Spawner>();
 
-        // THÊM: Ẩn menuCountdownText ban đầu
         if (menuCountdownText != null)
         {
             menuCountdownText.gameObject.SetActive(false);
+        }
+
+        if (completedPanel != null)
+        {
+            completedPanel.SetActive(false);
+        }
+
+        if (completedPlayAgainButton != null)
+        {
+            completedPlayAgainButton.onClick.AddListener(RestartLevel);
+        }
+
+        if (completedBackToMapButton != null)
+        {
+            completedBackToMapButton.onClick.AddListener(BackToMap);
         }
     }
 
@@ -90,27 +99,24 @@ public class UIController : MonoBehaviour
             TogglePause();
         }
 
+        // Kiểm tra hoàn thành level
+        if (!_levelCompleted && _spawner != null)
+        {
+            CheckLevelCompletion();
+        }
     }
 
     private void UpdateWaveText(int currentWave)
     {
         waveText.text = $"Wave: {currentWave + 1}";
-
-        //if (currentWave > EndWave) // assuming you want to show the victory panel after wave 5
-        //{
-        //    // show victory panel
-        //}
     }
 
     private void UpdateLivesText(int currentLives)
     {
         livesText.text = $" {currentLives}";
-
         if (currentLives == 0)
         {
-            //show game over panel(Defeat)
             ShowGameOver();
-
         }
     }
 
@@ -201,8 +207,6 @@ public class UIController : MonoBehaviour
 
     public void TogglePause()
     {
-
-
         if (_isGamePaused)
         {
             pausePanel.SetActive(false);
@@ -224,13 +228,12 @@ public class UIController : MonoBehaviour
         SceneManager.LoadScene(currentScene.buildIndex);
     }
 
-
     public void QuitGame()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-Application.Quit();
+        Application.Quit();
 #endif
     }
 
@@ -249,10 +252,9 @@ Application.Quit();
     public void ShowGameOver()
     {
         GameManager.Instance.SetTimeScale(0.05f);
-        gmaeoverPanel.SetActive(true);
+        gameoverPanel.SetActive(true);
     }
 
-    // THÊM: Cập nhật countdown text trên MenuPanel
     private void UpdateMenuCountdownText()
     {
         if (_spawner == null || menuCountdownText == null) return;
@@ -277,5 +279,74 @@ Application.Quit();
         }
     }
 
+    private void OnEnemyDestroyed(Enemy enemy)
+    {
+        CheckLevelCompletion();
+    }
 
+    private void CheckLevelCompletion()
+    {
+        if (_levelCompleted || _spawner == null) return;
+
+        // Kiểm tra xem có phải wave cuối không
+        if (_spawner.CurrentWaveIndex == _spawner.TotalWaves - 1)
+        {
+            // Kiểm tra xem đã spawn đủ enemy và tiêu diệt đủ chưa
+            if (_spawner.SpawnedEnemies >= 1 && _spawner.DestroyedEnemies >= 1)
+            {
+                // Kiểm tra xem còn enemy nào active không
+                Enemy[] enemies = FindObjectsOfType<Enemy>();
+                bool allEnemiesDefeated = true;
+
+                foreach (Enemy enemy in enemies)
+                {
+                    if (enemy.gameObject.activeInHierarchy)
+                    {
+                        allEnemiesDefeated = false;
+                        break;
+                    }
+                }
+
+                if (allEnemiesDefeated)
+                {
+                    ShowLevelCompleted();
+                }
+            }
+        }
+    }
+
+    public void ShowLevelCompleted()
+    {
+        if (completedPanel != null && !_levelCompleted)
+        {
+            _levelCompleted = true;
+
+            // Tạm dừng game
+            GameManager.Instance.SetTimeScale(0f);
+
+            // Hiển thị panel
+            completedPanel.SetActive(true);
+
+            // Mở khóa level tiếp theo
+            UnlockNextLevel();
+        }
+    }
+
+    private void UnlockNextLevel()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName.StartsWith("Level "))
+        {
+            string levelNumberStr = currentSceneName.Replace("Level ", "");
+            if (int.TryParse(levelNumberStr, out int currentLevel))
+            {
+                int nextLevel = currentLevel + 1;
+                if (nextLevel <= 15)
+                {
+                    PlayerPrefs.SetInt("LevelUnlocked_" + nextLevel, 1);
+                    PlayerPrefs.Save();
+                }
+            }
+        }
+    }
 }

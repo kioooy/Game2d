@@ -5312,11 +5312,10 @@ MonoBehaviour:
   selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
   pausePanel: {fileID: 914842778}
   gmaeoverPanel: {fileID: 901507037}
-  victoryPanel: {fileID: 2082375944}
-  victoryWaveText: {fileID: 97301783}
-  victoryPlayAgainButton: {fileID: 1874538331}
-  victoryBackToMapButton: {fileID: 2146558093}
   menuCountdownText: {fileID: 1994884188}
+  completedPanel: {fileID: 2082375944}
+  completedPlayAgainButton: {fileID: 1874538331}
+  completedBackToMapButton: {fileID: 2146558093}
 --- !u!1 &489955125
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,9 +13,7 @@ public class Spawner : MonoBehaviour
     private float _spawnTimer;
     private float _spawnCounter;
     private int _enemiesRemoved;
-    // NEW: Add initial delay before first wave
-    // thoi gian choi game truoc khi bat dau wave dau tien khoang x giay
-    public float _initialDelay = 20f;
+    public float _initialDelay = 25f;
     private float _initialTimer;
     private bool _isInitialDelay = true;
     [SerializeField] private ObjectPooler SnakePool;
@@ -26,12 +24,17 @@ public class Spawner : MonoBehaviour
     [SerializeField] private ObjectPooler HarpoonFishPool;
     [SerializeField] private ObjectPooler LancerPool;
     private Dictionary<EnemyType, ObjectPooler> _poolDictionary;
-    public float _timeBetweenWaves = 10f;
+    public float _timeBetweenWaves = 15f;
     public float _waveCooldown;
     public bool _isBetweenWaves = false;
-
     [SerializeField] private TMP_Text countdownText;
     private bool _isCountdownActive = false;
+
+    // Public properties để kiểm tra
+    public int CurrentWaveIndex => _currentWaveIndex;
+    public int TotalWaves => waves.Length;
+    public int SpawnedEnemies => Mathf.RoundToInt(_spawnCounter);
+    public int DestroyedEnemies => _enemiesRemoved;
 
     private void Awake()
     {
@@ -61,12 +64,10 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        // Start with initial delay
         _initialTimer = _initialDelay;
         _isInitialDelay = true;
         OnWaveChanged?.Invoke(_currentWaveIndex);
 
-        // THÊM: Ẩn countdown text ban đầu
         if (countdownText != null)
         {
             countdownText.gameObject.SetActive(false);
@@ -75,20 +76,17 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-
-        // THÊM: Cập nhật hiển thị countdown
         UpdateCountdownDisplay();
-        // NEW: Handle initial delay
+
         if (_isInitialDelay)
         {
             _initialTimer -= Time.deltaTime;
             if (_initialTimer <= 0f)
             {
                 _isInitialDelay = false;
-                // Start first wave immediately after delay
                 _isBetweenWaves = false;
             }
-            return; // Skip wave spawning during initial delay
+            return;
         }
 
         if (_isBetweenWaves)
@@ -122,7 +120,6 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    // THÊM: Phương thức cập nhật hiển thị countdown
     private void UpdateCountdownDisplay()
     {
         if (countdownText == null) return;
@@ -157,7 +154,7 @@ public class Spawner : MonoBehaviour
         {
             GameObject spawnedObject = pool.GetPooledObject();
             spawnedObject.transform.position = transform.position;
-            float healthMultiplication = 1f + (_waveCounter * 0.09f); // +9% sinh luc cho ke dich moi wave
+            float healthMultiplication = 1f + (_waveCounter * 0.09f);
             Enemy enemy = spawnedObject.GetComponent<Enemy>();
             enemy.Initialize(healthMultiplication);
             spawnedObject.SetActive(true);
@@ -174,24 +171,21 @@ public class Spawner : MonoBehaviour
         _enemiesRemoved++;
     }
 
-    // NEW: Optional public method to check if initial delay is active
     public bool IsInitialDelayActive()
     {
         return _isInitialDelay;
     }
 
-    // NEW: Optional public method to get remaining initial delay time
     public float GetRemainingInitialDelay()
     {
         return Mathf.Max(0f, _initialTimer);
     }
-    // THÊM: Phương thức public để lấy thời gian chờ wave
+
     public float GetRemainingWaveCooldown()
     {
         return Mathf.Max(0f, _waveCooldown);
     }
 
-    // THÊM: Phương thức để biết có đang trong countdown không
     public bool IsCountdownActive()
     {
         return _isCountdownActive;
