@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public static event Action<int> OnLivesChanged;
     public static event Action<int> OnCoinRewardChanged;
+
     private int _lives = 20;
     private int _coins = 180;
     public int Coins => _coins;
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        ApplyLoadedDataIfAny();
     }
 
     private void OnEnable()
@@ -41,17 +44,26 @@ public class GameManager : MonoBehaviour
     {
         OnLivesChanged?.Invoke(_lives);
         OnCoinRewardChanged?.Invoke(_coins);
+
+        SaveLoadManager.Instance.QuickSave(0);
+    }
+
+    private void ApplyLoadedDataIfAny()
+    {
     }
 
     private void HandleEnemyReachedEnd(EnemyData data)
     {
         _lives = Mathf.Max(0, _lives - data.damage);
         OnLivesChanged?.Invoke(_lives);
+
+        SaveLoadManager.Instance.QuickSave(0);
     }
 
     private void HandleEnemyDestroyed(Enemy enemy)
     {
         AddRewards(Mathf.RoundToInt(enemy.Data.coinReward));
+        SaveLoadManager.Instance.QuickSave(0);
     }
 
     private void AddRewards(int amount)
@@ -77,6 +89,7 @@ public class GameManager : MonoBehaviour
         {
             _coins -= amount;
             OnCoinRewardChanged?.Invoke(_coins);
+            SaveLoadManager.Instance.QuickSave(0);
         }
     }
 
@@ -84,8 +97,13 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 2; i <= 15; i++)
         {
-            PlayerPrefs.DeleteKey("LevelUnlocked_" + i);
+            PlayerPrefs.DeleteKey($"LevelUnlocked_{i}");
         }
         PlayerPrefs.Save();
+    }
+
+    public void UnlockNextLevel(int currentLevel)
+    {
+        SaveLoadManager.Instance.UnlockNextLevel(currentLevel);
     }
 }

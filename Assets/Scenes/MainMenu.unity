@@ -338,10 +338,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2016582018}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 390521779}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: Setting
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2024,6 +2024,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346188660}
   m_CullTransparentMesh: 1
+--- !u!1 &346698611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 346698612}
+  m_Layer: 5
+  m_Name: UIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &346698612
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346698611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1082506992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &357536907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,6 +2571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 390521778}
   - component: {fileID: 390521779}
+  - component: {fileID: 390521780}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -2576,9 +2612,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 390521777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d72c4203887e564bbc34b21fe893dc3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9243d0c7f94d86d4ebd57ef0682b9d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveLoadController: {fileID: 0}
+--- !u!114 &390521780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390521777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f5b47d26eb0be48b7ccf67409d3295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveLoadController
+  loadingMenu: {fileID: 0}
+  saveSlots: []
+  loadButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  backButton: {fileID: 0}
+  statusText: {fileID: 0}
+  confirmDialog: {fileID: 0}
+  confirmMessage: {fileID: 0}
+  confirmYesButton: {fileID: 0}
+  confirmNoButton: {fileID: 0}
 --- !u!1 &402782164
 GameObject:
   m_ObjectHideFlags: 0
@@ -3314,8 +3373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 516985619}
-  - component: {fileID: 516985618}
-  - component: {fileID: 516985617}
+  - component: {fileID: 516985620}
   m_Layer: 0
   m_Name: SaveLoadManager
   m_TagString: Untagged
@@ -3323,30 +3381,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &516985617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516985616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566f52b989ed41d4f9e16d64f00c6a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &516985618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516985616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 082cc91cddaf284418fda13bec3ab201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &516985619
 Transform:
   m_ObjectHideFlags: 0
@@ -3362,6 +3396,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &516985620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516985616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069ae21efac4ad44ea1bd945e18fcf71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveLoadManager
 --- !u!1 &530662554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4015,7 +4061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &644441136
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4046,9 +4092,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 644441135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4038d93a9295314d9beb63f850601e0, type: 3}
+  m_Script: {fileID: 11500000, guid: b6b203532628fe740a5a450442d8e622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotButton: {fileID: 359359673}
+  slotNameText: {fileID: 2019406259}
+  dateTimeText: {fileID: 0}
+  levelText: {fileID: 0}
+  coinsText: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  emptySlotText: {fileID: 0}
+  dataPanel: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &648535024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4670,10 +4726,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1319069960}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 390521779}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: LoadGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6245,7 +6301,6 @@ GameObject:
   - component: {fileID: 936674042}
   - component: {fileID: 936674041}
   - component: {fileID: 936674040}
-  - component: {fileID: 936674043}
   m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
@@ -6317,9 +6372,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 936674043}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 1082506993}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6367,19 +6422,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936674038}
   m_CullTransparentMesh: 0
---- !u!114 &936674043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936674038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb27a7cbdc88ce54bbfc62809daa0b0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  sceneName: LevelSelect
 --- !u!1 &948173974
 GameObject:
   m_ObjectHideFlags: 0
@@ -7073,6 +7115,7 @@ GameObject:
   - component: {fileID: 1082506990}
   - component: {fileID: 1082506989}
   - component: {fileID: 1082506993}
+  - component: {fileID: 1082506994}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -7156,6 +7199,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 476876447}
+  - {fileID: 346698612}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7175,6 +7219,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9243d0c7f94d86d4ebd57ef0682b9d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
+  saveLoadController: {fileID: 0}
+--- !u!114 &1082506994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082506988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03f965e3ed197544965fa171057e3d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIController
+  waveText: {fileID: 0}
+  livesText: {fileID: 0}
+  coinRewardText: {fileID: 0}
+  notEnoughCoinsText: {fileID: 0}
+  towerPanel: {fileID: 0}
+  towerCardPrefab: {fileID: 0}
+  cardsContainer: {fileID: 0}
+  towers: []
+  speed1Button: {fileID: 0}
+  speed2Button: {fileID: 0}
+  speed3Button: {fileID: 0}
+  normalButtonColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedButtonColor: {r: 0, g: 0, b: 1, a: 1}
+  normalTextColor: {r: 0, g: 0, b: 0, a: 1}
+  selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
+  pausePanel: {fileID: 0}
+  gameoverPanel: {fileID: 0}
+  menuCountdownText: {fileID: 0}
+  completedPanel: {fileID: 0}
+  completedPlayAgainButton: {fileID: 0}
+  completedBackToMapButton: {fileID: 0}
 --- !u!1 &1090230590
 GameObject:
   m_ObjectHideFlags: 0
@@ -9177,9 +9255,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1318702906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4038d93a9295314d9beb63f850601e0, type: 3}
+  m_Script: {fileID: 11500000, guid: b6b203532628fe740a5a450442d8e622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotButton: {fileID: 0}
+  slotNameText: {fileID: 0}
+  dateTimeText: {fileID: 0}
+  levelText: {fileID: 0}
+  coinsText: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  emptySlotText: {fileID: 0}
+  dataPanel: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &1319069960
 GameObject:
   m_ObjectHideFlags: 0
@@ -9191,6 +9279,7 @@ GameObject:
   - component: {fileID: 1319069961}
   - component: {fileID: 1319069963}
   - component: {fileID: 1319069962}
+  - component: {fileID: 1319069964}
   m_Layer: 5
   m_Name: LoadingMenu
   m_TagString: Untagged
@@ -9256,6 +9345,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319069960}
   m_CullTransparentMesh: 1
+--- !u!114 &1319069964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319069960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f5b47d26eb0be48b7ccf67409d3295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveLoadController
+  loadingMenu: {fileID: 1319069960}
+  saveSlots:
+  - {fileID: 644441137}
+  - {fileID: 1993564430}
+  - {fileID: 1318702908}
+  loadButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  backButton: {fileID: 0}
+  statusText: {fileID: 0}
+  confirmDialog: {fileID: 0}
+  confirmMessage: {fileID: 0}
+  confirmYesButton: {fileID: 0}
+  confirmNoButton: {fileID: 0}
 --- !u!1 &1321468038
 GameObject:
   m_ObjectHideFlags: 0
@@ -14635,9 +14749,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1993564428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4038d93a9295314d9beb63f850601e0, type: 3}
+  m_Script: {fileID: 11500000, guid: b6b203532628fe740a5a450442d8e622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotButton: {fileID: 0}
+  slotNameText: {fileID: 0}
+  dateTimeText: {fileID: 0}
+  levelText: {fileID: 0}
+  coinsText: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  emptySlotText: {fileID: 0}
+  dataPanel: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &2016582018
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,12 +1,33 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelSelector : MonoBehaviour
 {
     public string level;
 
+    private UnityEngine.UI.Button button;
+    private TMP_Text levelText;
+
     void Start()
     {
+        button = GetComponent<UnityEngine.UI.Button>();
+
+        TMP_Text[] texts = GetComponentsInChildren<TMP_Text>();
+        foreach (TMP_Text text in texts)
+        {
+            if (text.name == "LevelText" || text.text == level.ToString())
+            {
+                levelText = text;
+                break;
+            }
+        }
+
+        if (levelText == null && texts.Length > 0)
+        {
+            levelText = texts[0];
+        }
+
         UpdateLevelState();
     }
 
@@ -14,6 +35,7 @@ public class LevelSelector : MonoBehaviour
     {
         if (IsLevelUnlocked(int.Parse(level)))
         {
+            SaveLoadManager.Instance.QuickSave(0);
             SceneManager.LoadScene("Level " + level.ToString());
         }
     }
@@ -22,13 +44,11 @@ public class LevelSelector : MonoBehaviour
     {
         bool isUnlocked = IsLevelUnlocked(int.Parse(level));
 
-        UnityEngine.UI.Button button = GetComponent<UnityEngine.UI.Button>();
         if (button != null)
         {
             button.interactable = isUnlocked;
         }
 
-        // Tìm lock icon
         foreach (Transform child in transform)
         {
             if (child.name.Contains("Lock"))
@@ -38,15 +58,10 @@ public class LevelSelector : MonoBehaviour
             }
         }
 
-        // Tìm text level
-        TMPro.TMP_Text[] texts = GetComponentsInChildren<TMPro.TMP_Text>();
-        foreach (TMPro.TMP_Text text in texts)
+        if (levelText != null)
         {
-            if (text.text == level.ToString())
-            {
-                text.gameObject.SetActive(isUnlocked);
-                break;
-            }
+            levelText.text = level.ToString();
+            levelText.gameObject.SetActive(true);
         }
     }
 
