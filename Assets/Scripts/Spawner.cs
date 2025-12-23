@@ -128,14 +128,14 @@ public class Spawner : MonoBehaviour
         {
             _isCountdownActive = true;
             int seconds = Mathf.CeilToInt(_initialTimer);
-            countdownText.text = $"Bắt đầu sau: {seconds}s";
+            countdownText.text = $"Wave begins at: {seconds}s";
             countdownText.gameObject.SetActive(true);
         }
         else if (_isBetweenWaves)
         {
             _isCountdownActive = true;
             int seconds = Mathf.CeilToInt(_waveCooldown);
-            countdownText.text = $"Wave tiếp theo: {seconds}s";
+            countdownText.text = $"Next wave at: {seconds}s";
             countdownText.gameObject.SetActive(true);
         }
         else
