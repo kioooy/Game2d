@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     private int _lives = 20;
     private int _coins = 180;
     public int Coins => _coins;
-
     private float _gameSpeed = 1f;
     public float GameSpeed => _gameSpeed;
 
@@ -24,7 +23,6 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-
         ApplyLoadedDataIfAny();
     }
 
@@ -44,7 +42,6 @@ public class GameManager : MonoBehaviour
     {
         OnLivesChanged?.Invoke(_lives);
         OnCoinRewardChanged?.Invoke(_coins);
-
         SaveLoadManager.Instance.QuickSave(0);
     }
 
@@ -57,13 +54,16 @@ public class GameManager : MonoBehaviour
         _lives = Mathf.Max(0, _lives - data.damage);
         OnLivesChanged?.Invoke(_lives);
 
-        SaveLoadManager.Instance.QuickSave(0);
+        // TỰ ĐỘNG LƯU KHI MẤT MẠNG
+        SaveLoadManager.Instance.AutoSaveToCurrentSlot();
     }
 
     private void HandleEnemyDestroyed(Enemy enemy)
     {
         AddRewards(Mathf.RoundToInt(enemy.Data.coinReward));
-        SaveLoadManager.Instance.QuickSave(0);
+
+        // TỰ ĐỘNG LƯU KHI TIÊU DIỆT ENEMY
+        SaveLoadManager.Instance.AutoSaveToCurrentSlot();
     }
 
     private void AddRewards(int amount)
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         {
             _coins -= amount;
             OnCoinRewardChanged?.Invoke(_coins);
-            SaveLoadManager.Instance.QuickSave(0);
+            SaveLoadManager.Instance.AutoSaveToCurrentSlot();
         }
     }
 
