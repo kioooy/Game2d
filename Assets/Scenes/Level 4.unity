@@ -2106,19 +2106,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 248158389}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToMap
+      value: BroadcastMessage
       objectReference: {fileID: 0}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -9145,6 +9145,7 @@ MonoBehaviour:
   LancerPool: {fileID: 1869638984}
   HarpoonFishBossPool: {fileID: 1624664368}
   ShamanBossPool: {fileID: 0}
+  BearBossPool: {fileID: 0}
   _timeBetweenWaves: 10
   _waveCooldown: 10
   _isBetweenWaves: 0
@@ -11807,7 +11808,7 @@ PrefabInstance:
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 248158389}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

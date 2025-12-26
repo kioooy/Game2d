@@ -18704,6 +18704,9 @@ MonoBehaviour:
   ThiefPool: {fileID: 123945788}
   HarpoonFishPool: {fileID: 0}
   LancerPool: {fileID: 0}
+  HarpoonFishBossPool: {fileID: 0}
+  ShamanBossPool: {fileID: 0}
+  BearBossPool: {fileID: 0}
   _timeBetweenWaves: 10
   _waveCooldown: 10
   _isBetweenWaves: 0
