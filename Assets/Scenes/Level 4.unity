@@ -701,7 +701,7 @@ MonoBehaviour:
   normalTextColor: {r: 0, g: 0, b: 0, a: 1}
   selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
   pausePanel: {fileID: 743923594}
-  gameoverPanel: {fileID: 308694270}
+  gameoverPanel: {fileID: 494531660}
   menuCountdownText: {fileID: 116576242}
   completedPanel: {fileID: 308694270}
   completedPlayAgainButton: {fileID: 718562977}
@@ -9144,6 +9144,7 @@ MonoBehaviour:
   HarpoonFishPool: {fileID: 1129681334}
   LancerPool: {fileID: 1869638984}
   HarpoonFishBossPool: {fileID: 1624664368}
+  ShamanBossPool: {fileID: 0}
   _timeBetweenWaves: 10
   _waveCooldown: 10
   _isBetweenWaves: 0

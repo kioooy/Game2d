@@ -24,6 +24,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private ObjectPooler HarpoonFishPool;
     [SerializeField] private ObjectPooler LancerPool;
     [SerializeField] private ObjectPooler HarpoonFishBossPool;
+    [SerializeField] private ObjectPooler ShamanBossPool;
+    [SerializeField] private ObjectPooler BearBossPool;
     private Dictionary<EnemyType, ObjectPooler> _poolDictionary;
     public float _timeBetweenWaves = 15f;
     public float _waveCooldown;
@@ -49,6 +51,8 @@ public class Spawner : MonoBehaviour
             { EnemyType.HarpoonFish, HarpoonFishPool},
             { EnemyType.Lancer, LancerPool},
             { EnemyType.HarpoonFishBoss, HarpoonFishBossPool},
+               { EnemyType.ShamanBoss, ShamanBossPool},
+               { EnemyType.BearBoss, BearBossPool},
         };
     }
 

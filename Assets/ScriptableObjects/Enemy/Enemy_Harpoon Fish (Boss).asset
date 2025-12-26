@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80956e7014ffff64ba6501678c57f969, type: 3}
   m_Name: Enemy_Harpoon Fish (Boss)
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  lives: 500
-  damage: 1
-  speed: 2
+  lives: 450
+  damage: 8
+  speed: 0.5
   coinReward: 300
