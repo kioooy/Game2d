@@ -860,10 +860,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 97fe19d2bb489314ea1acab63708a037, type: 2}
   - {fileID: 11400000, guid: afffc08fc939f5e4cb51be0a6796f857, type: 2}
   - {fileID: 11400000, guid: 65b82a61d7e2aaa42b566b2380b15f32, type: 2}
-  - {fileID: 11400000, guid: 65b82a61d7e2aaa42b566b2380b15f32, type: 2}
-  - {fileID: 11400000, guid: 65b82a61d7e2aaa42b566b2380b15f32, type: 2}
-  - {fileID: 11400000, guid: 65b82a61d7e2aaa42b566b2380b15f32, type: 2}
-  - {fileID: 11400000, guid: 65b82a61d7e2aaa42b566b2380b15f32, type: 2}
+  - {fileID: 11400000, guid: 47d6ccef6162f3f46b0bb332cfd5d346, type: 2}
+  - {fileID: 11400000, guid: 05ce4a514062f114591d97539b06d2bf, type: 2}
+  - {fileID: 11400000, guid: f8c5a8a4908ed4a44a20fad22a73377c, type: 2}
+  - {fileID: 11400000, guid: ba2f52e3deff5a24fbd9837874a785d3, type: 2}
   - {fileID: 11400000, guid: 65b82a61d7e2aaa42b566b2380b15f32, type: 2}
   _initialDelay: 20
   SnakePool: {fileID: 890556857}
@@ -901,6 +901,7 @@ Transform:
   - {fileID: 217510193}
   - {fileID: 53879458}
   - {fileID: 1539362040}
+  - {fileID: 1599918645}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &290146440
@@ -7574,6 +7575,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 277141864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1599918644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599918645}
+  - component: {fileID: 1599918646}
+  m_Layer: 0
+  m_Name: BearBossPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1599918645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599918644}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 277141864}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1599918646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599918644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d977a2f312b0841bb1da51fa63f39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPooler
+  prefab: {fileID: 8431570816542802634, guid: de56e3428e724d34eb5908333b0fc3bc, type: 3}
+  poolSize: 6
 --- !u!1001 &1625881084
 PrefabInstance:
   m_ObjectHideFlags: 0
