@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static event Action<int> OnCoinRewardChanged;
 
     private int _lives = 20;
-    private int _coins = 200;
+    private int _coins = 150;
     public int Coins => _coins;
 
     private float _gameSpeed = 1f;
