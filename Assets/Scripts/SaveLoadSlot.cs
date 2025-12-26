@@ -1,10 +1,10 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class SaveLoadSlot : MonoBehaviour
 {
+    [Header("UI References")]
     [SerializeField] private Button slotButton;
     [SerializeField] private TMP_Text slotNameText;
     [SerializeField] private TMP_Text dateTimeText;
@@ -14,6 +14,7 @@ public class SaveLoadSlot : MonoBehaviour
     [SerializeField] private GameObject emptySlotText;
     [SerializeField] private GameObject dataPanel;
 
+    [Header("Colors")]
     [SerializeField] private Color normalColor = Color.white;
     [SerializeField] private Color selectedColor = Color.blue;
 
@@ -25,7 +26,7 @@ public class SaveLoadSlot : MonoBehaviour
     public bool IsEmpty => isEmpty;
     public SaveLoadData SlotData => slotData;
 
-    public event Action<SaveLoadSlot> OnSlotSelected;
+    public event System.Action<SaveLoadSlot> OnSlotSelected;
 
     private void Start()
     {
@@ -66,12 +67,17 @@ public class SaveLoadSlot : MonoBehaviour
 
     private void UpdateUIWithData()
     {
-        emptySlotText.SetActive(false);
-        dataPanel.SetActive(true);
+        if (emptySlotText != null)
+            emptySlotText.SetActive(false);
+        if (dataPanel != null)
+            dataPanel.SetActive(true);
 
-        dateTimeText.text = slotData.saveTime;
-        levelText.text = $"Level: {slotData.currentLevel}";
-        coinsText.text = $"Coins: {slotData.playerCoins}";
+        if (dateTimeText != null)
+            dateTimeText.text = slotData.saveTime;
+        if (levelText != null)
+            levelText.text = $"Level: {slotData.currentLevel}";
+        if (coinsText != null)
+            coinsText.text = $"Coins: {slotData.playerCoins}";
     }
 
     private void SetEmpty()
@@ -79,12 +85,17 @@ public class SaveLoadSlot : MonoBehaviour
         isEmpty = true;
         slotData = null;
 
-        emptySlotText.SetActive(true);
-        dataPanel.SetActive(false);
+        if (emptySlotText != null)
+            emptySlotText.SetActive(true);
+        if (dataPanel != null)
+            dataPanel.SetActive(false);
 
-        dateTimeText.text = "";
-        levelText.text = "";
-        coinsText.text = "";
+        if (dateTimeText != null)
+            dateTimeText.text = "";
+        if (levelText != null)
+            levelText.text = "";
+        if (coinsText != null)
+            coinsText.text = "";
     }
 
     public void SaveData(SaveLoadData data)
@@ -93,7 +104,7 @@ public class SaveLoadSlot : MonoBehaviour
 
         slotData = data;
         slotData.saveSlotIndex = slotIndex;
-        slotData.saveTime = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+        slotData.saveTime = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm");
 
         string json = JsonUtility.ToJson(slotData, true);
         PlayerPrefs.SetString($"SaveSlot_{slotIndex}", json);
@@ -101,13 +112,6 @@ public class SaveLoadSlot : MonoBehaviour
 
         isEmpty = false;
         UpdateUIWithData();
-    }
-
-    public void DeleteData()
-    {
-        PlayerPrefs.DeleteKey($"SaveSlot_{slotIndex}");
-        PlayerPrefs.Save();
-        SetEmpty();
     }
 
     private void OnSlotClicked()
@@ -118,12 +122,14 @@ public class SaveLoadSlot : MonoBehaviour
 
     public void SelectSlot()
     {
-        backgroundImage.color = selectedColor;
+        if (backgroundImage != null)
+            backgroundImage.color = selectedColor;
     }
 
     public void DeselectSlot()
     {
-        backgroundImage.color = normalColor;
+        if (backgroundImage != null)
+            backgroundImage.color = normalColor;
     }
 
     public void LoadData()

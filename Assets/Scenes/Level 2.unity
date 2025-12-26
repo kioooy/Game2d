@@ -13473,12 +13473,8 @@ MonoBehaviour:
   ShamanPool: {fileID: 0}
   ThiefPool: {fileID: 0}
   HarpoonFishPool: {fileID: 0}
-  HarpoonFishBossPool: {fileID: 0}
-  ShamanBossPool: {fileID: 0}
-  BearBossPool: {fileID: 0}
-  SpiderBossPool: {fileID: 0}
   LancerPool: {fileID: 0}
-  _timeBetweenWaves: 30
+  _timeBetweenWaves: 10
   _waveCooldown: 10
   _isBetweenWaves: 0
   countdownText: {fileID: 1359120671}

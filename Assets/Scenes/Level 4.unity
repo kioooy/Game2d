@@ -883,7 +883,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 248158389}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: TogglePause
         m_Mode: 1
@@ -5517,7 +5517,7 @@ PrefabInstance:
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 248158389}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -5782,6 +5782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 5575200743042322281, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7092620787048566745, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.99
@@ -6032,7 +6036,7 @@ PrefabInstance:
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 248158389}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -6600,6 +6604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1032428303}
+  - component: {fileID: 1032428304}
   m_Layer: 0
   m_Name: 'TowerPlacement '
   m_TagString: Untagged
@@ -6628,52 +6633,21 @@ Transform:
   - {fileID: 1735390745}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1051580324
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1051580326}
-  - component: {fileID: 1051580325}
-  m_Layer: 0
-  m_Name: HarpoonFishPool (Boss)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1051580325
+--- !u!114 &1032428304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051580324}
+  m_GameObject: {fileID: 1032428302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92d977a2f312b0841bb1da51fa63f39a, type: 3}
+  m_Script: {fileID: 11500000, guid: 98141f19a994e8247ac58d43b11d2309, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObjectPooler
-  prefab: {fileID: 8431570816542802634, guid: 0946d2e410a85a942ad1ff607ae7ba5a, type: 3}
-  poolSize: 6
---- !u!4 &1051580326
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051580324}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.03, y: 0.66252, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1239257458}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::Platform
+  platformLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &1053317383 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7092620787048566745, guid: b35bb912fb1113340bdf68dff1b21459, type: 3}
@@ -9161,20 +9135,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a9b1dffd3e47d9947a0c25d80cdc4736, type: 2}
   - {fileID: 11400000, guid: c4137a9ca780bb741aeff09af3115dbe, type: 2}
   - {fileID: 11400000, guid: d83e8425b950e1e49868e4b2e478edc3, type: 2}
-  _initialDelay: 25
+  _initialDelay: 20
   SnakePool: {fileID: 1520327935}
   SpiderPool: {fileID: 2137850995}
   BearPool: {fileID: 1980334999}
   ShamanPool: {fileID: 994735210}
   ThiefPool: {fileID: 1428227430}
   HarpoonFishPool: {fileID: 1129681334}
-  HarpoonFishBossPool: {fileID: 1051580325}
-  ShamanBossPool: {fileID: 0}
-  BearBossPool: {fileID: 0}
-  SpiderBossPool: {fileID: 0}
   LancerPool: {fileID: 1869638984}
-  _timeBetweenWaves: 3
-  _waveCooldown: 8
+  HarpoonFishBossPool: {fileID: 1624664368}
+  _timeBetweenWaves: 10
+  _waveCooldown: 10
   _isBetweenWaves: 0
   countdownText: {fileID: 0}
 --- !u!4 &1239257458
@@ -9192,12 +9163,12 @@ Transform:
   m_Children:
   - {fileID: 1520327936}
   - {fileID: 1129681333}
-  - {fileID: 1051580326}
   - {fileID: 1869638983}
   - {fileID: 1428227431}
   - {fileID: 1980335000}
   - {fileID: 2137850996}
   - {fileID: 994735209}
+  - {fileID: 1624664369}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1293309190 stripped
@@ -9592,7 +9563,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 248158389}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: TogglePause
         m_Mode: 1
@@ -9757,7 +9728,7 @@ PrefabInstance:
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 248158389}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -10090,7 +10061,7 @@ PrefabInstance:
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 248158389}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -10426,6 +10397,52 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2402794293334190883, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
   m_PrefabInstance: {fileID: 624147411}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1624664367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1624664369}
+  - component: {fileID: 1624664368}
+  m_Layer: 0
+  m_Name: HarpoonFishBossPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1624664368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624664367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d977a2f312b0841bb1da51fa63f39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPooler
+  prefab: {fileID: 8431570816542802634, guid: de56e3428e724d34eb5908333b0fc3bc, type: 3}
+  poolSize: 6
+--- !u!4 &1624664369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624664367}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1239257458}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1640183039
 GameObject:
   m_ObjectHideFlags: 0
@@ -10849,7 +10866,7 @@ PrefabInstance:
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 248158389}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -11130,7 +11147,7 @@ PrefabInstance:
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 248158389}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

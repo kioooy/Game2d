@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -7,13 +6,13 @@ public class MainMenuController : MonoBehaviour
 
     public void NewGame()
     {
-        int emptySlot = FindEmptySlot();
-        if (emptySlot >= 0)
+        if (saveLoadController != null)
         {
-            SaveLoadManager.Instance.CreateNewGame(emptySlot);
+            saveLoadController.ShowLoadingMenuForNewGame();
         }
         else
         {
+            // Fallback: tạo game mới ngay lập tức
             SaveLoadManager.Instance.CreateNewGame(0);
         }
     }
@@ -22,7 +21,7 @@ public class MainMenuController : MonoBehaviour
     {
         if (saveLoadController != null)
         {
-            saveLoadController.ShowLoadingMenu();
+            saveLoadController.ShowLoadingMenuForLoad();
         }
         else
         {
@@ -32,24 +31,15 @@ public class MainMenuController : MonoBehaviour
 
     public void Setting()
     {
+        // Mở menu setting (giữ nguyên)
     }
 
     public void QuitGame()
     {
         Application.Quit();
-    }
 
-    private int FindEmptySlot()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            string key = $"SaveSlot_{i}";
-            string json = PlayerPrefs.GetString(key, "");
-            if (string.IsNullOrEmpty(json))
-            {
-                return i;
-            }
-        }
-        return -1;
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

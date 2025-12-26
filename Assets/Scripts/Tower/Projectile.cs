@@ -38,4 +38,3 @@ public class Projectile : MonoBehaviour
         _projectileDuration = _data.projectileDuration;
     }
 }
-

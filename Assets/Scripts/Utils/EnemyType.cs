@@ -8,5 +8,6 @@ public enum EnemyType
     Shaman,
     Thief,
     HarpoonFish,
-    Lancer
+    Lancer,
+    HarpoonFishBoss
 }

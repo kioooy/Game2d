@@ -19,33 +19,28 @@ public class SaveLoadManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        InitializeSaveSystem();
-    }
 
-    private void InitializeSaveSystem()
-    {
-        for (int i = 0; i < TOTAL_SLOTS; i++)
+        // Kiểm tra nếu đang chạy từ Level scene, không destroy GameManager đang có
+        if (GameManager.Instance != null && GameManager.Instance != this)
         {
-            string key = $"SaveSlot_{i}";
-            if (!PlayerPrefs.HasKey(key))
-            {
-                PlayerPrefs.SetInt($"Slot_{i}_Initialized", 1);
-            }
+            // Không làm gì, để GameManager tồn tại
         }
-        PlayerPrefs.Save();
     }
 
     public void CreateNewGame(int slotIndex = -1)
     {
+        // Reset tất cả level về trạng thái khóa (chỉ mở level 1)
+        ResetAllLevels();
+
         currentGameData = new SaveLoadData();
         currentGameData.SetDefaultNewGame();
 
         if (slotIndex >= 0 && slotIndex < TOTAL_SLOTS)
         {
             SaveToSlot(slotIndex);
-            ApplyUnlockedLevels(currentGameData);
         }
 
+        // Load Level Select Scene
         SceneManager.LoadScene("LevelSelect");
     }
 
@@ -54,9 +49,10 @@ public class SaveLoadManager : MonoBehaviour
         if (data == null) return;
 
         currentGameData = data;
-        ApplyLoadedData();
+        ApplyUnlockedLevels(data);
 
-        if (data.currentLevel > 0)
+        // Load scene tương ứng
+        if (data.currentLevel >= 1)
         {
             SceneManager.LoadScene($"Level {data.currentLevel}");
         }
@@ -66,7 +62,41 @@ public class SaveLoadManager : MonoBehaviour
         }
     }
 
-    public void QuickSave(int slotIndex = 0)
+    private void ResetAllLevels()
+    {
+        // Khóa tất cả level trừ level 1
+        for (int i = 1; i <= 15; i++)
+        {
+            if (i == 1)
+                PlayerPrefs.SetInt($"LevelUnlocked_{i}", 1);
+            else
+                PlayerPrefs.SetInt($"LevelUnlocked_{i}", 0);
+        }
+        PlayerPrefs.Save();
+    }
+
+    private void ApplyUnlockedLevels(SaveLoadData data)
+    {
+        if (data == null || data.unlockedLevels == null) return;
+
+        // Reset tất cả về khóa
+        for (int i = 1; i <= 15; i++)
+        {
+            PlayerPrefs.SetInt($"LevelUnlocked_{i}", 0);
+        }
+
+        // Mở khóa các level trong data
+        foreach (int level in data.unlockedLevels)
+        {
+            if (level >= 1 && level <= 15)
+            {
+                PlayerPrefs.SetInt($"LevelUnlocked_{level}", 1);
+            }
+        }
+        PlayerPrefs.Save();
+    }
+
+    public void SaveToSlot(int slotIndex)
     {
         if (currentGameData == null)
         {
@@ -74,31 +104,10 @@ public class SaveLoadManager : MonoBehaviour
             currentGameData.SetDefaultNewGame();
         }
 
-        UpdateCurrentGameData();
-        SaveToSlot(slotIndex);
-    }
-
-    public void SaveToSlot(int slotIndex)
-    {
-        if (currentGameData == null) return;
-
         currentGameData.saveSlotIndex = slotIndex;
         currentGameData.saveTime = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm");
 
-        string json = JsonUtility.ToJson(currentGameData, true);
-        PlayerPrefs.SetString($"SaveSlot_{slotIndex}", json);
-        PlayerPrefs.Save();
-    }
-
-    private void UpdateCurrentGameData()
-    {
-        if (currentGameData == null) return;
-
-        if (GameManager.Instance != null)
-        {
-            currentGameData.playerCoins = GameManager.Instance.Coins;
-        }
-
+        // Cập nhật level hiện tại từ scene
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName.StartsWith("Level "))
         {
@@ -108,30 +117,9 @@ public class SaveLoadManager : MonoBehaviour
                 currentGameData.currentLevel = level;
             }
         }
-    }
 
-    private void ApplyLoadedData()
-    {
-        if (currentGameData == null) return;
-        ApplyUnlockedLevels(currentGameData);
-    }
-
-    private void ApplyUnlockedLevels(SaveLoadData data)
-    {
-        if (data == null || data.unlockedLevels == null) return;
-
-        for (int i = 1; i <= 15; i++)
-        {
-            PlayerPrefs.SetInt($"LevelUnlocked_{i}", 0);
-        }
-
-        foreach (int level in data.unlockedLevels)
-        {
-            if (level >= 1 && level <= 15)
-            {
-                PlayerPrefs.SetInt($"LevelUnlocked_{level}", 1);
-            }
-        }
+        string json = JsonUtility.ToJson(currentGameData, true);
+        PlayerPrefs.SetString($"SaveSlot_{slotIndex}", json);
         PlayerPrefs.Save();
     }
 
@@ -146,28 +134,6 @@ public class SaveLoadManager : MonoBehaviour
         }
 
         return null;
-    }
-
-    public void DeleteSlot(int slotIndex)
-    {
-        PlayerPrefs.DeleteKey($"SaveSlot_{slotIndex}");
-        PlayerPrefs.Save();
-    }
-
-    public bool HasAnySave()
-    {
-        for (int i = 0; i < TOTAL_SLOTS; i++)
-        {
-            if (PlayerPrefs.HasKey($"SaveSlot_{i}"))
-            {
-                string json = PlayerPrefs.GetString($"SaveSlot_{i}", "");
-                if (!string.IsNullOrEmpty(json))
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
     public void UnlockNextLevel(int currentLevel)
@@ -186,8 +152,27 @@ public class SaveLoadManager : MonoBehaviour
                 currentGameData.unlockedLevels.Add(nextLevel);
                 PlayerPrefs.SetInt($"LevelUnlocked_{nextLevel}", 1);
                 PlayerPrefs.Save();
-                QuickSave(0);
+
+                // Lưu lại progress
+                SaveToSlot(0);
             }
         }
+    }
+
+    public bool HasAnySave()
+    {
+        for (int i = 0; i < TOTAL_SLOTS; i++)
+        {
+            string key = $"SaveSlot_{i}";
+            if (PlayerPrefs.HasKey(key))
+            {
+                string json = PlayerPrefs.GetString(key, "");
+                if (!string.IsNullOrEmpty(json))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

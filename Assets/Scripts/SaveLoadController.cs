@@ -1,21 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
 public class SaveLoadController : MonoBehaviour
 {
+    [Header("UI References")]
     [SerializeField] private GameObject loadingMenu;
     [SerializeField] private SaveLoadSlot[] saveSlots;
     [SerializeField] private Button loadButton;
-    [SerializeField] private Button newGameButton;
     [SerializeField] private Button backButton;
     [SerializeField] private TMP_Text statusText;
-
-    [SerializeField] private GameObject confirmDialog;
-    [SerializeField] private TMP_Text confirmMessage;
-    [SerializeField] private Button confirmYesButton;
-    [SerializeField] private Button confirmNoButton;
 
     private SaveLoadSlot selectedSlot;
     private bool isNewGameMode = false;
@@ -24,15 +18,18 @@ public class SaveLoadController : MonoBehaviour
     {
         InitializeSlots();
         SetupButtons();
-        HideConfirmationDialog();
+        HideLoadingMenu();
     }
 
     private void InitializeSlots()
     {
         for (int i = 0; i < saveSlots.Length; i++)
         {
-            saveSlots[i].Initialize(i);
-            saveSlots[i].OnSlotSelected += OnSlotSelected;
+            if (saveSlots[i] != null)
+            {
+                saveSlots[i].Initialize(i);
+                saveSlots[i].OnSlotSelected += OnSlotSelected;
+            }
         }
     }
 
@@ -41,62 +38,62 @@ public class SaveLoadController : MonoBehaviour
         if (loadButton != null)
             loadButton.onClick.AddListener(OnLoadClicked);
 
-        if (newGameButton != null)
-            newGameButton.onClick.AddListener(OnNewGameClicked);
-
         if (backButton != null)
             backButton.onClick.AddListener(OnBackClicked);
-
-        if (confirmYesButton != null)
-            confirmYesButton.onClick.AddListener(OnConfirmYes);
-
-        if (confirmNoButton != null)
-            confirmNoButton.onClick.AddListener(HideConfirmationDialog);
     }
 
     private void OnSlotSelected(SaveLoadSlot slot)
     {
+        // Bỏ chọn slot cũ
         if (selectedSlot != null && selectedSlot != slot)
         {
             selectedSlot.DeselectSlot();
         }
 
+        // Chọn slot mới
         selectedSlot = slot;
-        selectedSlot.SelectSlot();
-        UpdateLoadButtonState();
+
+        // Cập nhật UI
+        UpdateUI();
     }
 
-    private void UpdateLoadButtonState()
+    private void UpdateUI()
     {
-        if (loadButton == null) return;
-
-        if (isNewGameMode && selectedSlot != null)
+        if (selectedSlot == null)
         {
-            loadButton.interactable = true;
-            loadButton.GetComponentInChildren<TMP_Text>().text = "SAVE NEW GAME";
-            statusText.text = $"New game will be saved to Slot {selectedSlot.SlotIndex + 1}";
+            if (loadButton != null)
+                loadButton.interactable = false;
+            if (statusText != null)
+                statusText.text = "Select a slot";
+            return;
         }
-        else if (selectedSlot != null && !selectedSlot.IsEmpty)
+
+        if (isNewGameMode)
         {
-            loadButton.interactable = true;
-            loadButton.GetComponentInChildren<TMP_Text>().text = "LOAD";
-            statusText.text = $"Selected: Slot {selectedSlot.SlotIndex + 1}";
+            // Chế độ New Game: luôn cho phép Save
+            if (loadButton != null)
+            {
+                loadButton.interactable = true;
+                loadButton.GetComponentInChildren<TMP_Text>().text = "SAVE NEW GAME";
+            }
+            if (statusText != null)
+                statusText.text = $"New game will be saved to Slot {selectedSlot.SlotIndex + 1}";
         }
         else
         {
-            loadButton.interactable = false;
-            statusText.text = "Select a save slot";
-        }
-    }
-
-    private void OnNewGameClicked()
-    {
-        isNewGameMode = true;
-        statusText.text = "Select a slot for your new game";
-
-        if (loadButton != null)
-        {
-            loadButton.GetComponentInChildren<TMP_Text>().text = "SAVE NEW GAME";
+            // Chế độ Load: chỉ cho phép nếu slot có data
+            if (loadButton != null)
+            {
+                loadButton.interactable = !selectedSlot.IsEmpty;
+                loadButton.GetComponentInChildren<TMP_Text>().text = "LOAD";
+            }
+            if (statusText != null)
+            {
+                if (selectedSlot.IsEmpty)
+                    statusText.text = "Empty slot";
+                else
+                    statusText.text = $"Slot {selectedSlot.SlotIndex + 1} selected";
+            }
         }
     }
 
@@ -104,114 +101,84 @@ public class SaveLoadController : MonoBehaviour
     {
         if (selectedSlot == null)
         {
-            statusText.text = "Please select a slot first!";
+            if (statusText != null)
+                statusText.text = "Please select a slot first!";
             return;
         }
 
         if (isNewGameMode)
         {
-            SaveNewGameToSlot();
+            // Tạo game mới và lưu vào slot đã chọn
+            SaveLoadManager.Instance.CreateNewGame(selectedSlot.SlotIndex);
+            HideLoadingMenu();
         }
         else
         {
+            // Load game từ slot
             if (!selectedSlot.IsEmpty)
             {
                 selectedSlot.LoadData();
+                HideLoadingMenu();
             }
             else
             {
-                statusText.text = "This slot is empty!";
+                if (statusText != null)
+                    statusText.text = "This slot is empty!";
             }
         }
-    }
-
-    private void SaveNewGameToSlot()
-    {
-        if (selectedSlot == null) return;
-
-        if (!selectedSlot.IsEmpty)
-        {
-            ShowConfirmationDialog(
-                $"Slot {selectedSlot.SlotIndex + 1} already has saved data.\nOverwrite?"
-            );
-        }
-        else
-        {
-            CreateNewGameNow();
-        }
-    }
-
-    private void CreateNewGameNow()
-    {
-        SaveLoadManager.Instance.CreateNewGame(selectedSlot.SlotIndex);
-
-        if (loadingMenu != null)
-            loadingMenu.SetActive(false);
     }
 
     private void OnBackClicked()
     {
-        if (loadingMenu != null)
-            loadingMenu.SetActive(false);
+        HideLoadingMenu();
+    }
 
+    public void ShowLoadingMenuForLoad()
+    {
         isNewGameMode = false;
+        ShowLoadingMenu();
+    }
+
+    public void ShowLoadingMenuForNewGame()
+    {
+        isNewGameMode = true;
+        ShowLoadingMenu();
+    }
+
+    private void ShowLoadingMenu()
+    {
+        if (loadingMenu != null)
+            loadingMenu.SetActive(true);
+
+        // Reset selection
         if (selectedSlot != null)
         {
             selectedSlot.DeselectSlot();
             selectedSlot = null;
         }
 
-        if (loadButton != null)
+        // Refresh slots data
+        foreach (var slot in saveSlots)
         {
-            loadButton.GetComponentInChildren<TMP_Text>().text = "LOAD";
-            loadButton.interactable = false;
+            if (slot != null)
+                slot.LoadSlotData();
         }
 
-        statusText.text = "";
+        // Update UI
+        UpdateUI();
     }
 
-    private void ShowConfirmationDialog(string message)
-    {
-        if (confirmDialog != null)
-        {
-            confirmDialog.SetActive(true);
-            confirmMessage.text = message;
-        }
-    }
-
-    private void HideConfirmationDialog()
-    {
-        if (confirmDialog != null)
-            confirmDialog.SetActive(false);
-    }
-
-    private void OnConfirmYes()
-    {
-        CreateNewGameNow();
-        HideConfirmationDialog();
-    }
-
-    public void ShowLoadingMenu()
+    private void HideLoadingMenu()
     {
         if (loadingMenu != null)
+            loadingMenu.SetActive(false);
+
+        // Reset
+        isNewGameMode = false;
+        if (selectedSlot != null)
         {
-            loadingMenu.SetActive(true);
-
-            foreach (var slot in saveSlots)
-            {
-                slot.LoadSlotData();
-            }
-
-            isNewGameMode = false;
+            selectedSlot.DeselectSlot();
             selectedSlot = null;
-
-            if (loadButton != null)
-            {
-                loadButton.GetComponentInChildren<TMP_Text>().text = "LOAD";
-                loadButton.interactable = false;
-            }
-
-            statusText.text = "Select a save slot";
         }
     }
 }

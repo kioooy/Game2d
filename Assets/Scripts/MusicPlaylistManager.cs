@@ -43,3 +43,4 @@ public class MusicPlaylistManager : MonoBehaviour
         PlayCurrentTrack();
     }
 }
+

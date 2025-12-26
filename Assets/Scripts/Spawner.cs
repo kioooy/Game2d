@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
     private float _spawnTimer;
     private float _spawnCounter;
     private int _enemiesRemoved;
-    public float _initialDelay = 20f;
+    public float _initialDelay = 25f;
     private float _initialTimer;
     private bool _isInitialDelay = true;
     [SerializeField] private ObjectPooler SnakePool;
@@ -23,6 +23,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private ObjectPooler ThiefPool;
     [SerializeField] private ObjectPooler HarpoonFishPool;
     [SerializeField] private ObjectPooler LancerPool;
+    [SerializeField] private ObjectPooler HarpoonFishBossPool;
     private Dictionary<EnemyType, ObjectPooler> _poolDictionary;
     public float _timeBetweenWaves = 15f;
     public float _waveCooldown;
@@ -47,6 +48,7 @@ public class Spawner : MonoBehaviour
             { EnemyType.Thief, ThiefPool},
             { EnemyType.HarpoonFish, HarpoonFishPool},
             { EnemyType.Lancer, LancerPool},
+            { EnemyType.HarpoonFishBoss, HarpoonFishBossPool},
         };
     }
 
@@ -135,7 +137,7 @@ public class Spawner : MonoBehaviour
         {
             _isCountdownActive = true;
             int seconds = Mathf.CeilToInt(_waveCooldown);
-            countdownText.text = $"Next Wave at: {seconds}s";
+            countdownText.text = $"Next wave at: {seconds}s";
             countdownText.gameObject.SetActive(true);
         }
         else

@@ -46,9 +46,9 @@ public class SimplePauseManager : MonoBehaviour
         }
 
         // Set button texts (optional)
-        if (resumeText != null) resumeText.text = "Tiếp tục chơi";
-        if (restartText != null) restartText.text = "Chơi lại";
-        if (backToMapText != null) backToMapText.text = "Quay về bản đồ";
+        if (resumeText != null) resumeText.text = "Continue Game";
+        if (restartText != null) restartText.text = "Restart";
+        if (backToMapText != null) backToMapText.text = "Back to map";
 
         // Hide pause panel initially
         if (pausePanel != null)
@@ -134,3 +134,4 @@ public class SimplePauseManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 }
+

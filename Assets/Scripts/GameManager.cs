@@ -24,8 +24,6 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-
-        ApplyLoadedDataIfAny();
     }
 
     private void OnEnable()
@@ -45,25 +43,22 @@ public class GameManager : MonoBehaviour
         OnLivesChanged?.Invoke(_lives);
         OnCoinRewardChanged?.Invoke(_coins);
 
-        SaveLoadManager.Instance.QuickSave(0);
-    }
-
-    private void ApplyLoadedDataIfAny()
-    {
+        // TỰ ĐỘNG LƯU KHI VÀO GAME
+        if (SaveLoadManager.Instance != null)
+        {
+            SaveLoadManager.Instance.SaveToSlot(0);
+        }
     }
 
     private void HandleEnemyReachedEnd(EnemyData data)
     {
         _lives = Mathf.Max(0, _lives - data.damage);
         OnLivesChanged?.Invoke(_lives);
-
-        SaveLoadManager.Instance.QuickSave(0);
     }
 
     private void HandleEnemyDestroyed(Enemy enemy)
     {
         AddRewards(Mathf.RoundToInt(enemy.Data.coinReward));
-        SaveLoadManager.Instance.QuickSave(0);
     }
 
     private void AddRewards(int amount)
@@ -89,7 +84,6 @@ public class GameManager : MonoBehaviour
         {
             _coins -= amount;
             OnCoinRewardChanged?.Invoke(_coins);
-            SaveLoadManager.Instance.QuickSave(0);
         }
     }
 
@@ -97,11 +91,12 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 2; i <= 15; i++)
         {
-            PlayerPrefs.DeleteKey($"LevelUnlocked_{i}");
+            PlayerPrefs.DeleteKey("LevelUnlocked_" + i);
         }
         PlayerPrefs.Save();
     }
 
+    // THÊM PHƯƠNG THỨC ĐỂ UNLOCK LEVEL
     public void UnlockNextLevel(int currentLevel)
     {
         SaveLoadManager.Instance.UnlockNextLevel(currentLevel);
