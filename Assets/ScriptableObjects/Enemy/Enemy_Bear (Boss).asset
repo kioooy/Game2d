@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80956e7014ffff64ba6501678c57f969, type: 3}
   m_Name: Enemy_Bear (Boss)
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  lives: 800
+  lives: 1000
   damage: 20
-  speed: 0.4
+  speed: 0.8
   coinReward: 500
