@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System;
 
 public class SaveLoadManager : MonoBehaviour
 {
@@ -19,29 +20,39 @@ public class SaveLoadManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        // Kiểm tra nếu đang chạy từ Level scene, không destroy GameManager đang có
-        if (GameManager.Instance != null && GameManager.Instance != this)
-        {
-            // Không làm gì, để GameManager tồn tại
-        }
     }
 
-    public void CreateNewGame(int slotIndex = -1)
+    public bool HasAnySave()
     {
-        // Reset tất cả level về trạng thái khóa (chỉ mở level 1)
+        return GetSlotData(0) != null;
+    }
+
+    public void CreateNewGame(int slotIndex = 0)
+    {
         ResetAllLevels();
 
         currentGameData = new SaveLoadData();
         currentGameData.SetDefaultNewGame();
 
-        if (slotIndex >= 0 && slotIndex < TOTAL_SLOTS)
-        {
-            SaveToSlot(slotIndex);
-        }
+        SaveToSlot(slotIndex);
 
-        // Load Level Select Scene
         SceneManager.LoadScene("LevelSelect");
+    }
+
+    public void ContinueToLevelSelect()
+    {
+        SaveLoadData savedGame = GetSlotData(0);
+
+        if (savedGame != null)
+        {
+            ApplyUnlockedLevels(savedGame);
+            currentGameData = savedGame;
+            SceneManager.LoadScene("LevelSelect");
+        }
+        else
+        {
+            CreateNewGame(0);
+        }
     }
 
     public void LoadGame(SaveLoadData data)
@@ -51,7 +62,6 @@ public class SaveLoadManager : MonoBehaviour
         currentGameData = data;
         ApplyUnlockedLevels(data);
 
-        // Load scene tương ứng
         if (data.currentLevel >= 1)
         {
             SceneManager.LoadScene($"Level {data.currentLevel}");
@@ -64,7 +74,6 @@ public class SaveLoadManager : MonoBehaviour
 
     private void ResetAllLevels()
     {
-        // Khóa tất cả level trừ level 1
         for (int i = 1; i <= 15; i++)
         {
             if (i == 1)
@@ -79,13 +88,11 @@ public class SaveLoadManager : MonoBehaviour
     {
         if (data == null || data.unlockedLevels == null) return;
 
-        // Reset tất cả về khóa
         for (int i = 1; i <= 15; i++)
         {
             PlayerPrefs.SetInt($"LevelUnlocked_{i}", 0);
         }
 
-        // Mở khóa các level trong data
         foreach (int level in data.unlockedLevels)
         {
             if (level >= 1 && level <= 15)
@@ -105,9 +112,8 @@ public class SaveLoadManager : MonoBehaviour
         }
 
         currentGameData.saveSlotIndex = slotIndex;
-        currentGameData.saveTime = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+        currentGameData.saveTime = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
 
-        // Cập nhật level hiện tại từ scene
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName.StartsWith("Level "))
         {
@@ -153,26 +159,8 @@ public class SaveLoadManager : MonoBehaviour
                 PlayerPrefs.SetInt($"LevelUnlocked_{nextLevel}", 1);
                 PlayerPrefs.Save();
 
-                // Lưu lại progress
                 SaveToSlot(0);
             }
         }
-    }
-
-    public bool HasAnySave()
-    {
-        for (int i = 0; i < TOTAL_SLOTS; i++)
-        {
-            string key = $"SaveSlot_{i}";
-            if (PlayerPrefs.HasKey(key))
-            {
-                string json = PlayerPrefs.GetString(key, "");
-                if (!string.IsNullOrEmpty(json))
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 }

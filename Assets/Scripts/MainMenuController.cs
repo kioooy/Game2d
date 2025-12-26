@@ -1,37 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class MainMenuController : MonoBehaviour
 {
-    [SerializeField] private SaveLoadController saveLoadController;
+    [SerializeField] private Button continueButton;
+    [SerializeField] private TMP_Text continueButtonText;
+
+    private void Start()
+    {
+        UpdateContinueButton();
+    }
 
     public void NewGame()
     {
-        if (saveLoadController != null)
-        {
-            saveLoadController.ShowLoadingMenuForNewGame();
-        }
-        else
-        {
-            // Fallback: tạo game mới ngay lập tức
-            SaveLoadManager.Instance.CreateNewGame(0);
-        }
+        SaveLoadManager.Instance.CreateNewGame(0);
     }
 
-    public void LoadGame()
+    public void ContinueGame()
     {
-        if (saveLoadController != null)
-        {
-            saveLoadController.ShowLoadingMenuForLoad();
-        }
-        else
-        {
-            Debug.LogError("SaveLoadController not assigned!");
-        }
+        SaveLoadManager.Instance.ContinueToLevelSelect();
     }
 
     public void Setting()
     {
-        // Mở menu setting (giữ nguyên)
     }
 
     public void QuitGame()
@@ -41,5 +33,15 @@ public class MainMenuController : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    private void UpdateContinueButton()
+    {
+        if (continueButton != null && continueButtonText != null)
+        {
+            continueButton.interactable = true;
+            bool hasSave = SaveLoadManager.Instance.HasAnySave();
+            continueButtonText.text = hasSave ? "CONTINUE" : "NEW GAME";
+        }
     }
 }
