@@ -7720,7 +7720,7 @@ PrefabInstance:
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 964154165}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -7862,7 +7862,7 @@ PrefabInstance:
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 964154165}
     - target: {fileID: 6782849228617971117, guid: a32af149a54623941be97fa50cf74f1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -10615,6 +10615,7 @@ MonoBehaviour:
   LancerPool: {fileID: 1310420577}
   HarpoonFishBossPool: {fileID: 979046078}
   ShamanBossPool: {fileID: 0}
+  BearBossPool: {fileID: 0}
   _timeBetweenWaves: 10
   _waveCooldown: 10
   _isBetweenWaves: 0
