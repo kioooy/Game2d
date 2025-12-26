@@ -40,3 +40,4 @@ public class VolumeManagerWithMixer : MonoBehaviour
         PlayerPrefs.SetFloat("MusicVolume", value);
     }
 }
+

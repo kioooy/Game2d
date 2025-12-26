@@ -16,9 +16,6 @@ public class MainMenuController : MonoBehaviour
         {
             SaveLoadManager.Instance.CreateNewGame(0);
         }
-
-        // TỰ ĐỘNG LƯU GAME MỚI
-        SaveLoadManager.Instance.AutoSaveToCurrentSlot();
     }
 
     public void LoadGame()

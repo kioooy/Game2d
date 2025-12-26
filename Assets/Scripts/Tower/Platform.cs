@@ -6,11 +6,11 @@ public class Platform : MonoBehaviour
 {
     public static event Action<Platform> OnPlatformClicked;
     [SerializeField] private LayerMask platformLayerMask;
-    public static bool towerPanelOpen {get;set; } = false;
-    
+    public static bool towerPanelOpen { get; set; } = false;
+
     private void Update()
     {
-        if (towerPanelOpen || Time.timeScale == 0f) 
+        if (towerPanelOpen || Time.timeScale == 0f)
             return;
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
@@ -33,7 +33,7 @@ public class Platform : MonoBehaviour
         Vector3 platformPosition = transform.position;
         // Instantiate tower at platform position
         GameObject towerInstance = Instantiate(data.prefab, platformPosition, Quaternion.identity);
-        
+
         // Find the child object named "Tower" (the tower base)
         Transform towerBase = towerInstance.transform.Find("Tower");
         if (towerBase != null)
@@ -43,7 +43,7 @@ public class Platform : MonoBehaviour
             // Adjust root position so that tower base aligns with platform position
             towerInstance.transform.position = platformPosition - towerBaseOffset;
         }
-        
+
         // Destroy the platform after placing the tower
         Destroy(gameObject);
     }

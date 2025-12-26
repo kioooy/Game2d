@@ -36,7 +36,7 @@ public class SaveLoadData
     public void SetDefaultNewGame()
     {
         currentLevel = 1;
-        playerCoins = 180;
+        playerCoins = 200;
         playerLives = 20;
         gameSpeed = 1f;
         currentWaveIndex = 0;

@@ -5,12 +5,14 @@ using TMPro;
 public class LevelSelector : MonoBehaviour
 {
     public string level;
+
     private UnityEngine.UI.Button button;
     private TMP_Text levelText;
 
     void Start()
     {
         button = GetComponent<UnityEngine.UI.Button>();
+
         TMP_Text[] texts = GetComponentsInChildren<TMP_Text>();
         foreach (TMP_Text text in texts)
         {
@@ -20,10 +22,12 @@ public class LevelSelector : MonoBehaviour
                 break;
             }
         }
+
         if (levelText == null && texts.Length > 0)
         {
             levelText = texts[0];
         }
+
         UpdateLevelState();
     }
 
@@ -31,8 +35,7 @@ public class LevelSelector : MonoBehaviour
     {
         if (IsLevelUnlocked(int.Parse(level)))
         {
-            // TỰ ĐỘNG LƯU TRƯỚC KHI VÀO LEVEL
-            SaveLoadManager.Instance.AutoSaveToCurrentSlot();
+            SaveLoadManager.Instance.QuickSave(0);
             SceneManager.LoadScene("Level " + level.ToString());
         }
     }
@@ -40,10 +43,12 @@ public class LevelSelector : MonoBehaviour
     private void UpdateLevelState()
     {
         bool isUnlocked = IsLevelUnlocked(int.Parse(level));
+
         if (button != null)
         {
             button.interactable = isUnlocked;
         }
+
         foreach (Transform child in transform)
         {
             if (child.name.Contains("Lock"))
@@ -52,6 +57,7 @@ public class LevelSelector : MonoBehaviour
                 break;
             }
         }
+
         if (levelText != null)
         {
             levelText.text = level.ToString();

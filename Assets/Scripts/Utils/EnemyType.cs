@@ -2,11 +2,11 @@ using UnityEngine;
 
 public enum EnemyType
 {
-   Bear,
-   Snake,
-   Spider,
-   Shaman,
-   Thief,
-   HarpoonFish,
-   Lancer
+    Bear,
+    Snake,
+    Spider,
+    Shaman,
+    Thief,
+    HarpoonFish,
+    Lancer
 }

@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,9 +12,9 @@ public class Tower : MonoBehaviour
     private float _shootTimer;
 
 
-    
 
-   private void OnEnable()
+
+    private void OnEnable()
     {
         Enemy.OnEnemyDestroyed += HandleEnemyDestroyed;
     }
@@ -49,7 +48,7 @@ public class Tower : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, data.range);
     }
 
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))

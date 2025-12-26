@@ -13,6 +13,7 @@ public class SaveLoadSlot : MonoBehaviour
     [SerializeField] private Image backgroundImage;
     [SerializeField] private GameObject emptySlotText;
     [SerializeField] private GameObject dataPanel;
+
     [SerializeField] private Color normalColor = Color.white;
     [SerializeField] private Color selectedColor = Color.blue;
 
@@ -43,6 +44,7 @@ public class SaveLoadSlot : MonoBehaviour
     {
         string key = $"SaveSlot_{slotIndex}";
         string json = PlayerPrefs.GetString(key, "");
+
         if (!string.IsNullOrEmpty(json))
         {
             try
@@ -67,36 +69,36 @@ public class SaveLoadSlot : MonoBehaviour
         emptySlotText.SetActive(false);
         dataPanel.SetActive(true);
 
-        // CHỈ HIỂN THỊ LEVEL VÀ DATE THEO PLAN.PNG
+        dateTimeText.text = slotData.saveTime;
         levelText.text = $"Level: {slotData.currentLevel}";
-        dateTimeText.text = $"Date: {slotData.saveTime}";
-
-        // ẨN COINS TEXT
-        if (coinsText != null)
-            coinsText.gameObject.SetActive(false);
+        coinsText.text = $"Coins: {slotData.playerCoins}";
     }
 
     private void SetEmpty()
     {
         isEmpty = true;
         slotData = null;
+
         emptySlotText.SetActive(true);
         dataPanel.SetActive(false);
+
         dateTimeText.text = "";
         levelText.text = "";
-        if (coinsText != null)
-            coinsText.text = "";
+        coinsText.text = "";
     }
 
     public void SaveData(SaveLoadData data)
     {
         if (data == null) return;
+
         slotData = data;
         slotData.saveSlotIndex = slotIndex;
         slotData.saveTime = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
         string json = JsonUtility.ToJson(slotData, true);
         PlayerPrefs.SetString($"SaveSlot_{slotIndex}", json);
         PlayerPrefs.Save();
+
         isEmpty = false;
         UpdateUIWithData();
     }

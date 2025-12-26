@@ -16,10 +16,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private TowerCard towerCardPrefab;
     [SerializeField] private Transform cardsContainer;
     [SerializeField] private TowerData[] towers;
-
     private List<GameObject> activeCards = new List<GameObject>();
     private Platform _currentPlatform;
-
     [SerializeField] private Button speed1Button;
     [SerializeField] private Button speed2Button;
     [SerializeField] private Button speed3Button;
@@ -27,15 +25,11 @@ public class UIController : MonoBehaviour
     [SerializeField] private Color selectedButtonColor = Color.blue;
     [SerializeField] private Color normalTextColor = Color.black;
     [SerializeField] private Color selectedTextColor = Color.white;
-
     [SerializeField] private GameObject pausePanel;
     private bool _isGamePaused = false;
-
     [SerializeField] private GameObject gameoverPanel;
     private Spawner _spawner;
-
     [SerializeField] private TMP_Text menuCountdownText;
-
     [SerializeField] private GameObject completedPanel;
     [SerializeField] private Button completedPlayAgainButton;
     [SerializeField] private Button completedBackToMapButton;
@@ -59,6 +53,7 @@ public class UIController : MonoBehaviour
         Platform.OnPlatformClicked -= handlePlatformClicked;
         TowerCard.OnTowerSelected -= handleTowerSelected;
         Enemy.OnEnemyDestroyed -= OnEnemyDestroyed;
+
         if (Time.timeScale == 0f)
         {
             Time.timeScale = 1f;
@@ -73,6 +68,7 @@ public class UIController : MonoBehaviour
         HighlightSelectedSpeedButton(GameManager.Instance.GameSpeed);
 
         _spawner = FindObjectOfType<Spawner>();
+
         if (menuCountdownText != null)
         {
             menuCountdownText.gameObject.SetActive(false);
@@ -97,10 +93,13 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         UpdateMenuCountdownText();
+
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             TogglePause();
         }
+
+        // Kiểm tra hoàn thành level
         if (!_levelCompleted && _spawner != null)
         {
             CheckLevelCompletion();
@@ -152,6 +151,7 @@ public class UIController : MonoBehaviour
             Destroy(card);
         }
         activeCards.Clear();
+
         foreach (var data in towers)
         {
             GameObject cardGameObject = Instantiate(towerCardPrefab, cardsContainer).gameObject;
@@ -258,6 +258,7 @@ public class UIController : MonoBehaviour
     private void UpdateMenuCountdownText()
     {
         if (_spawner == null || menuCountdownText == null) return;
+
         if (_spawner.IsInitialDelayActive())
         {
             float remainingTime = _spawner.GetRemainingInitialDelay();
@@ -287,12 +288,16 @@ public class UIController : MonoBehaviour
     {
         if (_levelCompleted || _spawner == null) return;
 
+        // Kiểm tra xem có phải wave cuối không
         if (_spawner.CurrentWaveIndex == _spawner.TotalWaves - 1)
         {
+            // Kiểm tra xem đã spawn đủ enemy và tiêu diệt đủ chưa
             if (_spawner.SpawnedEnemies >= 1 && _spawner.DestroyedEnemies >= 1)
             {
+                // Kiểm tra xem còn enemy nào active không
                 Enemy[] enemies = FindObjectsOfType<Enemy>();
                 bool allEnemiesDefeated = true;
+
                 foreach (Enemy enemy in enemies)
                 {
                     if (enemy.gameObject.activeInHierarchy)
@@ -301,6 +306,7 @@ public class UIController : MonoBehaviour
                         break;
                     }
                 }
+
                 if (allEnemiesDefeated)
                 {
                     ShowLevelCompleted();
@@ -314,20 +320,15 @@ public class UIController : MonoBehaviour
         if (completedPanel != null && !_levelCompleted)
         {
             _levelCompleted = true;
-            GameManager.Instance.SetTimeScale(0f);
-            completedPanel.SetActive(true);
-            UnlockNextLevel();
 
-            // TỰ ĐỘNG LƯU KHI HOÀN THÀNH LEVEL
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            if (currentSceneName.StartsWith("Level "))
-            {
-                string levelNumberStr = currentSceneName.Replace("Level ", "");
-                if (int.TryParse(levelNumberStr, out int currentLevel))
-                {
-                    SaveLoadManager.Instance.AutoSaveOnLevelComplete(currentLevel);
-                }
-            }
+            // Tạm dừng game
+            GameManager.Instance.SetTimeScale(0f);
+
+            // Hiển thị panel
+            completedPanel.SetActive(true);
+
+            // Mở khóa level tiếp theo
+            UnlockNextLevel();
         }
     }
 

@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
     private float _spawnTimer;
     private float _spawnCounter;
     private int _enemiesRemoved;
-    public float _initialDelay = 25f;
+    public float _initialDelay = 20f;
     private float _initialTimer;
     private bool _isInitialDelay = true;
     [SerializeField] private ObjectPooler SnakePool;
@@ -135,7 +135,7 @@ public class Spawner : MonoBehaviour
         {
             _isCountdownActive = true;
             int seconds = Mathf.CeilToInt(_waveCooldown);
-            countdownText.text = $"Next wave at: {seconds}s";
+            countdownText.text = $"Next Wave at: {seconds}s";
             countdownText.gameObject.SetActive(true);
         }
         else

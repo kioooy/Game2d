@@ -39,19 +39,23 @@ public class SaveLoadManager : MonoBehaviour
     {
         currentGameData = new SaveLoadData();
         currentGameData.SetDefaultNewGame();
+
         if (slotIndex >= 0 && slotIndex < TOTAL_SLOTS)
         {
             SaveToSlot(slotIndex);
             ApplyUnlockedLevels(currentGameData);
         }
+
         SceneManager.LoadScene("LevelSelect");
     }
 
     public void LoadGame(SaveLoadData data)
     {
         if (data == null) return;
+
         currentGameData = data;
         ApplyLoadedData();
+
         if (data.currentLevel > 0)
         {
             SceneManager.LoadScene($"Level {data.currentLevel}");
@@ -69,6 +73,7 @@ public class SaveLoadManager : MonoBehaviour
             currentGameData = new SaveLoadData();
             currentGameData.SetDefaultNewGame();
         }
+
         UpdateCurrentGameData();
         SaveToSlot(slotIndex);
     }
@@ -76,8 +81,10 @@ public class SaveLoadManager : MonoBehaviour
     public void SaveToSlot(int slotIndex)
     {
         if (currentGameData == null) return;
+
         currentGameData.saveSlotIndex = slotIndex;
         currentGameData.saveTime = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
         string json = JsonUtility.ToJson(currentGameData, true);
         PlayerPrefs.SetString($"SaveSlot_{slotIndex}", json);
         PlayerPrefs.Save();
@@ -86,10 +93,12 @@ public class SaveLoadManager : MonoBehaviour
     private void UpdateCurrentGameData()
     {
         if (currentGameData == null) return;
+
         if (GameManager.Instance != null)
         {
             currentGameData.playerCoins = GameManager.Instance.Coins;
         }
+
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName.StartsWith("Level "))
         {
@@ -110,10 +119,12 @@ public class SaveLoadManager : MonoBehaviour
     private void ApplyUnlockedLevels(SaveLoadData data)
     {
         if (data == null || data.unlockedLevels == null) return;
+
         for (int i = 1; i <= 15; i++)
         {
             PlayerPrefs.SetInt($"LevelUnlocked_{i}", 0);
         }
+
         foreach (int level in data.unlockedLevels)
         {
             if (level >= 1 && level <= 15)
@@ -128,10 +139,12 @@ public class SaveLoadManager : MonoBehaviour
     {
         string key = $"SaveSlot_{slotIndex}";
         string json = PlayerPrefs.GetString(key, "");
+
         if (!string.IsNullOrEmpty(json))
         {
             return JsonUtility.FromJson<SaveLoadData>(json);
         }
+
         return null;
     }
 
@@ -164,6 +177,7 @@ public class SaveLoadManager : MonoBehaviour
             currentGameData = new SaveLoadData();
             currentGameData.SetDefaultNewGame();
         }
+
         int nextLevel = currentLevel + 1;
         if (nextLevel <= 15)
         {
@@ -175,58 +189,5 @@ public class SaveLoadManager : MonoBehaviour
                 QuickSave(0);
             }
         }
-    }
-
-    // THÊM PHẦN TỰ ĐỘNG LƯU
-    public void AutoSaveToCurrentSlot()
-    {
-        if (currentGameData == null) return;
-
-        // Tìm slot nào có dữ liệu hiện tại
-        for (int i = 0; i < TOTAL_SLOTS; i++)
-        {
-            string key = $"SaveSlot_{i}";
-            string json = PlayerPrefs.GetString(key, "");
-            if (!string.IsNullOrEmpty(json))
-            {
-                SaveLoadData data = JsonUtility.FromJson<SaveLoadData>(json);
-                if (data != null && data.currentLevel == currentGameData.currentLevel)
-                {
-                    UpdateCurrentGameData();
-                    SaveToSlot(i);
-                    return;
-                }
-            }
-        }
-
-        // Nếu không tìm thấy, lưu vào slot đầu tiên
-        UpdateCurrentGameData();
-        SaveToSlot(0);
-    }
-
-    public void AutoSaveOnLevelComplete(int completedLevel)
-    {
-        if (currentGameData == null)
-        {
-            currentGameData = new SaveLoadData();
-            currentGameData.SetDefaultNewGame();
-        }
-
-        currentGameData.currentLevel = completedLevel;
-        currentGameData.saveTime = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-
-        // Mở khóa level tiếp theo
-        int nextLevel = completedLevel + 1;
-        if (nextLevel <= 15)
-        {
-            if (!currentGameData.unlockedLevels.Contains(nextLevel))
-            {
-                currentGameData.unlockedLevels.Add(nextLevel);
-                PlayerPrefs.SetInt($"LevelUnlocked_{nextLevel}", 1);
-                PlayerPrefs.Save();
-            }
-        }
-
-        AutoSaveToCurrentSlot();
     }
 }

@@ -8,10 +8,12 @@ public class SimplePauseManager : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private Button pauseButton;
     [SerializeField] private GameObject pausePanel;
+
     [Header("Pause Panel Buttons")]
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button backToMapButton;
+
     [Header("Button Text References")]
     [SerializeField] private TMP_Text resumeText;
     [SerializeField] private TMP_Text restartText;
@@ -21,25 +23,34 @@ public class SimplePauseManager : MonoBehaviour
 
     private void Start()
     {
+        // Setup pause button
         if (pauseButton != null)
         {
             pauseButton.onClick.AddListener(TogglePause);
         }
+
+        // Setup pause panel buttons
         if (resumeButton != null)
         {
             resumeButton.onClick.AddListener(ResumeGame);
         }
+
         if (restartButton != null)
         {
             restartButton.onClick.AddListener(RestartGame);
         }
+
         if (backToMapButton != null)
         {
             backToMapButton.onClick.AddListener(BackToMap);
         }
+
+        // Set button texts (optional)
         if (resumeText != null) resumeText.text = "Tiếp tục chơi";
         if (restartText != null) restartText.text = "Chơi lại";
         if (backToMapText != null) backToMapText.text = "Quay về bản đồ";
+
+        // Hide pause panel initially
         if (pausePanel != null)
         {
             pausePanel.SetActive(false);
@@ -49,60 +60,66 @@ public class SimplePauseManager : MonoBehaviour
     private void TogglePause()
     {
         isPaused = !isPaused;
+
         if (pausePanel != null)
         {
             pausePanel.SetActive(isPaused);
         }
+
         Time.timeScale = isPaused ? 0f : 1f;
     }
 
     private void ResumeGame()
     {
         isPaused = false;
+
         if (pausePanel != null)
         {
             pausePanel.SetActive(false);
         }
+
         Time.timeScale = 1f;
     }
 
     private void RestartGame()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; // Reset timescale
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
     }
 
     private void BackToMap()
     {
-        Time.timeScale = 1f;
-
-        // TỰ ĐỘNG LƯU KHI QUAY VỀ BẢN ĐỒ
-        SaveLoadManager.Instance.AutoSaveToCurrentSlot();
-
+        Time.timeScale = 1f; // Reset timescale
+        // Load level select scene - change "LevelSelect" to your actual scene name
         SceneManager.LoadScene("LevelSelect");
     }
 
     private void OnDestroy()
     {
+        // Clean up event listeners
         if (pauseButton != null)
         {
             pauseButton.onClick.RemoveListener(TogglePause);
         }
+
         if (resumeButton != null)
         {
             resumeButton.onClick.RemoveListener(ResumeGame);
         }
+
         if (restartButton != null)
         {
             restartButton.onClick.RemoveListener(RestartGame);
         }
+
         if (backToMapButton != null)
         {
             backToMapButton.onClick.RemoveListener(BackToMap);
         }
     }
 
+    // For external control
     public void ShowPausePanel()
     {
         isPaused = true;

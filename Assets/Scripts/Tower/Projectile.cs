@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
         else
         {
             _projectileDuration -= Time.deltaTime;
-            transform.position += new Vector3(_shootDirection.x, _shootDirection.y)*
+            transform.position += new Vector3(_shootDirection.x, _shootDirection.y) *
             _data.projectileSpeed * Time.deltaTime;
         }
     }
