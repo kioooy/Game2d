@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Resources.meta
 guid: 77ad527cf246859439bce8a84ce625d8
+========
+guid: 18a0cf69403197940892c1ad922600ee
+>>>>>>>> Stashed changes:Assets/Editor.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

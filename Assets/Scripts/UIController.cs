@@ -45,6 +45,17 @@ public class UIController : MonoBehaviour
     private TMP_Text _towerInfoText;
 >>>>>>> Stashed changes
 
+    [Header("Tower Action Menu")]
+    [SerializeField] private GameObject towerActionMenu;
+    [SerializeField] private TMP_Text towerInfoText;
+    [SerializeField] private Button upgradeButton;
+    [SerializeField] private Button sellButton;
+    [SerializeField] private Button closeButton;
+    [SerializeField] private TMP_Text upgradePriceText;
+    [SerializeField] private TMP_Text sellPriceText;
+
+    private Tower _selectedTower;
+
     private void OnEnable()
     {
         Spawner.OnWaveChanged += UpdateWaveText;
@@ -55,8 +66,29 @@ public class UIController : MonoBehaviour
         GameManager.OnCoinRewardChanged += UpdateCoinRewardText;
         Platform.OnPlatformClicked += handlePlatformClicked;
         TowerCard.OnTowerSelected += handleTowerSelected;
-        Enemy.OnEnemyDestroyed += OnEnemyDestroyed;
         Tower.OnTowerClicked += handleTowerClicked;
+        Enemy.OnEnemyDestroyed += OnEnemyDestroyed;
+<<<<<<< Updated upstream
+        Tower.OnTowerClicked += handleTowerClicked;
+>>>>>>> Stashed changes
+=======
+        
+        if (upgradeButton != null) upgradeButton.onClick.AddListener(UpgradeSelectedTower);
+        if (sellButton != null) sellButton.onClick.AddListener(SellSelectedTower);
+        if (closeButton != null) closeButton.onClick.AddListener(HideTowerActionMenu);
+
+        // Tự động tìm tất cả các nút đóng trong bảng (bao gồm cả nút nền)
+        if (towerActionMenu != null)
+        {
+            Button[] allButtons = towerActionMenu.GetComponentsInChildren<Button>(true);
+            foreach (var btn in allButtons)
+            {
+                if (btn.name.Contains("Close") && btn != closeButton)
+                {
+                    btn.onClick.AddListener(HideTowerActionMenu);
+                }
+            }
+        }
 >>>>>>> Stashed changes
     }
 
@@ -71,8 +103,23 @@ public class UIController : MonoBehaviour
         GameManager.OnCoinRewardChanged -= UpdateCoinRewardText;
         Platform.OnPlatformClicked -= handlePlatformClicked;
         TowerCard.OnTowerSelected -= handleTowerSelected;
+        Tower.OnTowerClicked -= handleTowerClicked;
         Enemy.OnEnemyDestroyed -= OnEnemyDestroyed;
         Tower.OnTowerClicked -= handleTowerClicked;
+
+        if (upgradeButton != null) upgradeButton.onClick.RemoveListener(UpgradeSelectedTower);
+        if (sellButton != null) sellButton.onClick.RemoveListener(SellSelectedTower);
+        if (closeButton != null) closeButton.onClick.RemoveListener(HideTowerActionMenu);
+        
+        // Also remove from any other buttons in the menu that might be using it
+        if (towerActionMenu != null)
+        {
+            Button[] allButtons = towerActionMenu.GetComponentsInChildren<Button>(true);
+            foreach (var btn in allButtons)
+            {
+                if (btn.name.Contains("Close")) btn.onClick.RemoveListener(HideTowerActionMenu);
+            }
+        }
 
         if (Time.timeScale == 0f)
         {
@@ -130,6 +177,8 @@ public class UIController : MonoBehaviour
         {
             canvas.sortingOrder = 10; // High enough for towers/bars, low enough for HUDs
         }
+
+        if (towerActionMenu != null) towerActionMenu.SetActive(false);
     }
 
     private void Update()
@@ -154,8 +203,70 @@ public class UIController : MonoBehaviour
             CheckLevelCompletion();
         }
 
+<<<<<<< Updated upstream
         // --- Centralized click detection for Platform & Tower ---
         HandleWorldClick();
+=======
+        // Phát hiện click vào trụ bằng Physics2D.OverlapPoint
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Nếu đang click vào UI (bảng mua trụ, button...) thì bỏ qua hoàn toàn
+            bool overUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+            if (overUI) return;
+
+            // Chuyển tọa độ màn hình sang thế giới
+            Vector3 mouseScreen = Input.mousePosition;
+            mouseScreen.z = -Camera.main.transform.position.z;
+            Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
+            Vector2 clickPos = new Vector2(mouseWorld.x, mouseWorld.y);
+
+            Collider2D[] hits = Physics2D.OverlapPointAll(clickPos);
+
+            // ƯU TIÊN platform: nếu click trúng platform (ô đặt trụ trống)
+            // thì để Platform.cs tự xử lý, không can thiệp tower detection
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.GetComponent<Platform>() != null)
+                    return;
+            }
+
+            // Trong các collider trúng, chọn tower có tâm gần clickPos nhất
+            Tower clickedTower = null;
+            float minDist = float.MaxValue;
+            foreach (Collider2D hit in hits)
+            {
+                Tower t = hit.GetComponent<Tower>();
+                if (t == null) t = hit.GetComponentInParent<Tower>();
+                if (t != null)
+                {
+                    float dist = Vector2.Distance(clickPos, (Vector2)t.transform.position);
+                    if (dist < minDist)
+                    {
+                        minDist = dist;
+                        clickedTower = t;
+                    }
+                }
+            }
+
+            if (clickedTower != null)
+            {
+                HideTowerPanel();
+                if (_selectedTower != null && _selectedTower != clickedTower)
+                    _selectedTower.Deselect();
+                _selectedTower = clickedTower;
+                _selectedTower.Select();
+                ShowTowerActionMenu();
+            }
+            else
+            {
+                // Click vào vùng trống ngoài UI → đóng menu nếu đang mở
+                if (towerActionMenu != null && towerActionMenu.activeSelf)
+                {
+                    HideTowerActionMenu();
+                }
+            }
+        }
+>>>>>>> Stashed changes
     }
 
     private void HandleWorldClick()
@@ -238,6 +349,7 @@ public class UIController : MonoBehaviour
 
     private void handlePlatformClicked(Platform platform)
     {
+        DeselectTower();
         _currentPlatform = platform;
         _currentTower = null;
         HideTowerActionMenu();
@@ -246,10 +358,94 @@ public class UIController : MonoBehaviour
 
     private void handleTowerClicked(Tower tower)
     {
+<<<<<<< Updated upstream
         _currentTower = tower;
         _currentPlatform = null;
         HideTowerPanel();
         ShowTowerActionMenu(tower);
+=======
+        HideTowerPanel();
+        if (_selectedTower != null && _selectedTower != tower)
+        {
+            _selectedTower.Deselect();
+        }
+
+        _selectedTower = tower;
+        _selectedTower.Select();
+        ShowTowerActionMenu();
+    }
+
+    private void ShowTowerActionMenu()
+    {
+        if (towerActionMenu == null) return;
+
+        towerActionMenu.SetActive(true);
+        UpdateTowerActionMenuUI();
+    }
+
+    private void UpdateTowerActionMenuUI()
+    {
+        if (_selectedTower == null) return;
+
+        towerInfoText.text = $"{_selectedTower.Data.name}\nLevel: {_selectedTower.Level}/{_selectedTower.MaxLevel}\nDamage: {_selectedTower.CurrentDamage:0.0}";
+        upgradePriceText.text = _selectedTower.Level >= _selectedTower.MaxLevel ? "MAX" : $"{_selectedTower.UpgradeCost} coins";
+        sellPriceText.text = $"{_selectedTower.SellValue} coins";
+        
+        upgradeButton.interactable = _selectedTower.Level < _selectedTower.MaxLevel && GameManager.Instance.Coins >= _selectedTower.UpgradeCost;
+    }
+
+    public void HideTowerActionMenu()
+    {
+        if (towerActionMenu != null) towerActionMenu.SetActive(false);
+        DeselectTower();
+    }
+
+    private void DeselectTower()
+    {
+        if (_selectedTower != null)
+        {
+            _selectedTower.Deselect();
+            _selectedTower = null;
+        }
+    }
+
+    public void UpgradeSelectedTower()
+    {
+        Debug.Log("Upgrade Clicked");
+        if (_selectedTower == null) return;
+
+        if (_selectedTower.Level >= _selectedTower.MaxLevel)
+        {
+            Debug.Log("Tower already at Max Level");
+            return;
+        }
+
+        if (GameManager.Instance.Coins >= _selectedTower.UpgradeCost)
+        {
+            GameManager.Instance.SpendCoins(_selectedTower.UpgradeCost);
+            _selectedTower.Upgrade();
+            UpdateTowerActionMenuUI();
+            AudioManager.Instance?.PlayTowerUpgraded();
+        }
+        else
+        {
+            Debug.Log("Not enough coins for upgrade");
+            StartCoroutine(ShowNotEnoughCoinsText());
+            AudioManager.Instance?.PlayNotEnoughCoins();
+        }
+    }
+
+    public void SellSelectedTower()
+    {
+        Debug.Log("Sell Clicked");
+        if (_selectedTower != null)
+        {
+            GameManager.Instance.AddCoins(_selectedTower.SellValue);
+            _selectedTower.Sell();
+            HideTowerActionMenu();
+            AudioManager.Instance?.PlayTowerSold();
+        }
+>>>>>>> Stashed changes
     }
 
     private void ShowTowerPanel()
@@ -291,6 +487,7 @@ public class UIController : MonoBehaviour
         // --- Normal placement from Platform ---
         if (_currentPlatform != null)
         {
+<<<<<<< Updated upstream
             if (GameManager.Instance.Coins >= towerData.cost)
             {
                 GameManager.Instance.SpendCoins(towerData.cost);
@@ -472,10 +669,17 @@ public class UIController : MonoBehaviour
             RefreshActionMenuInfo(_currentTower);
 
             if (AudioManager.Instance != null) AudioManager.Instance.PlayUpgradeTower();
+=======
+            GameManager.Instance.SpendCoins(towerData.cost);
+            _currentPlatform.PlaceTower(towerData);
+            HideTowerPanel();
+            AudioManager.Instance?.PlayTowerPlaced();
+>>>>>>> Stashed changes
         }
         else
         {
             StartCoroutine(ShowNotEnoughCoinsText());
+            AudioManager.Instance?.PlayNotEnoughCoins();
         }
     }
 
@@ -581,8 +785,12 @@ public class UIController : MonoBehaviour
     {
         GameManager.Instance.SetTimeScale(0.05f);
         gameoverPanel.SetActive(true);
+<<<<<<< Updated upstream
 
         if (AudioManager.Instance != null) AudioManager.Instance.PlayGameOver();
+=======
+        AudioManager.Instance?.PlayGameOver();
+>>>>>>> Stashed changes
     }
 
     private void UpdateMenuCountdownText()
@@ -701,6 +909,9 @@ public class UIController : MonoBehaviour
                 if (completedBackToMapButton.transform is RectTransform r) r.sizeDelta = new Vector2(Mathf.Max(r.sizeDelta.x, 200f), Mathf.Max(r.sizeDelta.y, 50f));
             }
             Canvas.ForceUpdateCanvases();
+
+            // Phát âm thanh thắng
+            AudioManager.Instance?.PlayVictory();
 
             // Mở khóa level tiếp theo
             UnlockNextLevel();

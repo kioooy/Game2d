@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Assets/Editor.meta
 guid: 135dce6709431d4429b7e3641182214f
+========
+guid: eef8bfde11e5c91458f3c1de71b42b34
+>>>>>>>> Stashed changes:Assets/Audioi.meta
+=======
+<<<<<<<< Updated upstream:Assets/Resources.meta
+guid: 77ad527cf246859439bce8a84ce625d8
+========
+guid: 18a0cf69403197940892c1ad922600ee
+>>>>>>>> Stashed changes:Assets/Editor.meta
+>>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

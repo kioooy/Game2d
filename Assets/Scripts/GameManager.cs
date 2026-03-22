@@ -58,10 +58,10 @@ public class GameManager : MonoBehaviour
 
     private void HandleEnemyDestroyed(Enemy enemy)
     {
-        AddRewards(Mathf.RoundToInt(enemy.Data.coinReward));
+        AddCoins(Mathf.RoundToInt(enemy.Data.coinReward));
     }
 
-    private void AddRewards(int amount)
+    public void AddCoins(int amount)
     {
         _coins += amount;
         OnCoinRewardChanged?.Invoke(_coins);
